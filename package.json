@@ -1,0 +1,27 @@
+{
+  "name": "jam-is-on",
+  "version": "1.0.0",
+  "description": "###### Team members:  1. Maruthi Lalitha Pelluri Venkata Sesha 2. Carlos Ponce 3. Denis Galo 4. Liam Condon 5. Kevin Choi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kchoi123/jam-is-on.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kchoi123/jam-is-on/issues"
+  },
+  "homepage": "https://github.com/kchoi123/jam-is-on#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "handlebars": "^4.1.1",
+    "mysql2": "^1.6.5",
+    "path": "^0.12.7",
+    "sequelize": "^5.2.12"
+  }
+}

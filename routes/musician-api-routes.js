@@ -86,7 +86,7 @@ module.exports = function(app) {
     // req.body.id and return the result to the user using res.json
 
     db.Post.update({
-     s
+     
     }, {
       where: {
         id: req.body.id

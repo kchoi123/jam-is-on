@@ -1,4 +1,4 @@
-### Schema
+### 'Schema';
 
 DROP DATABASE IF EXISTS jamison_db;
 

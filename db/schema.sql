@@ -12,8 +12,8 @@ CREATE TABLE musician
     email VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
 	band BOOLEAN DEFAULT false,
-	instruments VARCHAR(255),
-	genre VARCHAR(255),
+	primary_instruments VARCHAR(255),
+	primay_genre VARCHAR(255),
 	schedule VARCHAR(255),
 	PRIMARY KEY (id)
 );
@@ -25,7 +25,7 @@ CREATE TABLE band
     email VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
 	musician BOOLEAN DEFAULT false,
-	instruments VARCHAR(255),
+	primary_instruments VARCHAR(255),
 	genre VARCHAR(255),
 	schedule VARCHAR(255),
 	PRIMARY KEY (id)

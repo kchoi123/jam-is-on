@@ -31,7 +31,7 @@ module.exports = function(app) {
         musician: req.body.musician
       },
     }).then(function(dbPost){
-     res.json(dbPost);
+     res.render(dbPost);
     });
   });
 
@@ -46,7 +46,7 @@ module.exports = function(app) {
         id: req.body.id
       },
     }).then(function(dbPost){
-     res.json(dbPost);
+     res.render(dbPost);
     });
 
   });
@@ -59,7 +59,7 @@ module.exports = function(app) {
       
     }).then(function(dbPost) {
       // We have access to the new dbPost as an argument inside of the callback function
-      res.json(dbPost);
+      res.render(dbPost);
     });
 
   });
@@ -93,7 +93,7 @@ module.exports = function(app) {
       },
     }).then(function(dbPost) {
       // We have access to the new dbPost as an argument inside of the callback function
-      res.json(dbPost);
+      res.render(dbPost);
   });
 });
 };

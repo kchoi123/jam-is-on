@@ -86,14 +86,14 @@ module.exports = function(app) {
         // req.body.id and return the result to the user using res.json
 
         db.Post.update({
-            s
+
         }, {
             where: {
                 id: req.body.id
             },
         }).then(function(dbPost) {
             // We have access to the new dbPost as an argument inside of the callback function
-            res.json(dbPost);
+            res.render(dbPost);
         });
     });
 };

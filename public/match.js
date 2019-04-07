@@ -1,33 +1,34 @@
 function findMatch(musician) {
 
-    // Create object to compare with bands:
+    // Create musician object to compare with bands:
    var thisMusician = {
        instruments: [musician.primary_instrument],
        genres: [musician.genre],
        availibility: musician.availibility
    }
 
+     // Include second instrument and second genre if present:
+        if (musician.secondary_instrument) {
+            thisMusician.instruments.push(musician.secondary_instrument);
+            console.log(musician.name + " has a second instrument");
+            }
 
-   if (musician.secondary_instrument) {
-       thisMusician.instruments.push(musician.secondary_instrument);
-       console.log(musician.name + " has a second instrument");
-   }
+        if (musician.secondary_genre) {
+            thisMusician.genres.push(musician.secondary_genre);
+            console.log(musician.name + " has a second genre");
+            }
 
-   if (musician.secondary_genre) {
-    thisMusician.genres.push(musician.secondary_genre);
-    console.log(musician.name + " has a second genre");
-    }
-
-   var thisBand = {
-    instruments: [],
-    genres: [],
-    availibility: musician.availibility
-}
 
     for (var i = 0; i < bands.length; i++) {
-        var bandScores = bands[i].answers;
-        var musicianScores = musician.answers;
-    
+
+        if (bands[i].musician === false) {
+            return;
+        }
+        var thisBand = {
+            instruments: [bands[i].primary_instrument],
+            genres: [musician.genre],
+            availibility: musician.availibility
+        }
 
         for (var j = 0; j < musicianScores.length; j++) {
             bandDifference += Math.abs((musicianScores[j] - bandScores[j]));

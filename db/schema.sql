@@ -1,10 +1,7 @@
 ### Schema
-
 DROP DATABASE IF EXISTS jamison_db;
-
 CREATE DATABASE jamison_db;
 USE jamison_db;
-
 CREATE TABLE musician
 (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -37,4 +34,4 @@ CREATE TABLE band
 	secondary_genre VARCHAR(255),
 	availability VARCHAR(255),
 	PRIMARY KEY (id)
-);
+); 

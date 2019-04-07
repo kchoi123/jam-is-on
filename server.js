@@ -5,6 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var exphbs = require("express-handlebars")
 
 // Sets up the Express App
 // =============================================================
@@ -28,8 +29,8 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
-require("./routes/post-api-routes.js")(app);
+require("./routes/band-api-routes.js")(app);
+require("./routes/musician-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

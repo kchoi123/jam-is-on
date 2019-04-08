@@ -19,6 +19,7 @@
   "homepage": "https://github.com/kchoi123/jam-is-on#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
     "handlebars": "^4.1.1",
     "mysql2": "^1.6.5",
     "path": "^0.12.7",

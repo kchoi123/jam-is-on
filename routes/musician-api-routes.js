@@ -1,12 +1,13 @@
 var db = require("../models");
 
+
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
-    db.Post.findAll({}).then(function(results) {
+  app.get("/", function(req, res) {
+    db.Musician.findAll({}).then(function(results) {
       var placeHolder = [];
 
       for (var i = 0; i < results.length; i++) {
@@ -16,7 +17,7 @@ module.exports = function(app) {
       var hbsObject = {
         band: placeHolder
       };
-	  res.render("index", hbsObject);
+      res.render("index", hbsObject);
     });
 
   });
@@ -25,13 +26,13 @@ module.exports = function(app) {
   app.get("/api/posts/musician/:musician", function(req, res) {
     // Add sequelize code to find all posts where the musician is equal to req.params.musician,
     // return the result to the user with res.json
-    db.Post.findAll({
+    db.Musician.findAll({
     }, {
       where: {
         musician: req.body.musician
       },
     }).then(function(dbPost){
-     res.render(dbPost);
+      res.render(dbPost);
     });
   });
 
@@ -39,14 +40,14 @@ module.exports = function(app) {
   app.get("/api/posts/:id", function(req, res) {
     // Add sequelize code to find a single post where the id is equal to req.params.id,
     // return the result to the user with res.json
-    db.Post.findAll({
-    
+    db.Musician.findAll({
+
     }, {
       where: {
         id: req.body.id
       },
     }).then(function(dbPost){
-     res.render(dbPost);
+      res.render(dbPost);
     });
 
   });
@@ -55,8 +56,8 @@ module.exports = function(app) {
   app.post("/api/posts", function(req, res) {
     // Add sequelize code for creating a post using req.body,
     // then return the result using res.json
-    db.Post.create({
-      
+    db.Musician.create({
+
     }).then(function(dbPost) {
       // We have access to the new dbPost as an argument inside of the callback function
       res.render(dbPost);
@@ -70,14 +71,13 @@ module.exports = function(app) {
     // then return the result to the user using res.json
     console.log("Post ID:");
     console.log(req.params.id);
-    db.Post.destroy({
+    db.Musician.destroy({
       where: {
         id: req.params.id
       }
     }).then(function() {
       res.end();
     });
-
   });
 
   // PUT route for updating posts
@@ -85,8 +85,8 @@ module.exports = function(app) {
     // Add code here to update a post using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
 
-    db.Post.update({
-     
+    db.Musician.update({
+
     }, {
       where: {
         id: req.body.id
@@ -94,6 +94,6 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       // We have access to the new dbPost as an argument inside of the callback function
       res.render(dbPost);
+    });
   });
-});
 };

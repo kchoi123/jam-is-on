@@ -1,57 +1,118 @@
-var Band = require("../models/band.js")
+var Band = require("../models/band.js");
 
 var Op = Sequelize.Op;
 
-function exactMatch(musician) {
-
-    Band.findAll({
-      where: {
-        [Op.or]: [
-            {primary_genre: musician.primary_genre},
-            {secondary_genre: musician.primary_genre},
-            {primary_genre: musician.secondary_genre},
-            {secondary_genre: musician.secondary_genre}
-        ],
-        [Op.or]: [
-            {primary_instrument: musician.primary_instrument},
-            {secondary_instrument: musician.primary_instrument},
-            {primary_instrument: musician.secondary_instrument},
-            {secondary_instrument: musician.secondary_instrument}
-        ],
-        availability: musician.availibility
-      },
-        limit: 5,
-    })
-}
-
-exactMatch(musician);
-
-function closeMatch(musician) {
-    Band.findAll({
-        [Op.or]: [
-            {where: {
+var matches = {
+    exact: function(musician) {
+        Band.findAll({
+            where: {
                 [Op.or]: [
                     {primary_genre: musician.primary_genre},
                     {secondary_genre: musician.primary_genre},
                     {primary_genre: musician.secondary_genre},
                     {secondary_genre: musician.secondary_genre}
-                ]
-            }},
-            {where: {
+                ],
                 [Op.or]: [
                     {primary_instrument: musician.primary_instrument},
                     {secondary_instrument: musician.primary_instrument},
                     {primary_instrument: musician.secondary_instrument},
                     {secondary_instrument: musician.secondary_instrument}
-                ]
-            }}
-        ]
-    })
-
+                ],
+                musician: true,
+                location: musician.location,
+                availability: musician.availability
+            },
+                limit: 5
+            })
+    },
+    
+    close: function(musician) {
+        Band.findAll({
+            where: {
+                [Op.or]: [
+                    {where: {
+                        [Op.or]: [
+                            {primary_genre: musician.primary_genre},
+                            {secondary_genre: musician.primary_genre},
+                            {primary_genre: musician.secondary_genre},
+                            {secondary_genre: musician.secondary_genre}
+                        ]
+                    }},
+                    {where: {
+                        [Op.or]: [
+                            {primary_instrument: musician.primary_instrument},
+                            {secondary_instrument: musician.primary_instrument},
+                            {primary_instrument: musician.secondary_instrument},
+                            {secondary_instrument: musician.secondary_instrument}
+                        ]
+                    }}
+                ],
+                location: musician.location,
+                availability: musician.availability
+            },
+            limit: 5
+        })
+    }
 }
+
+//     var exactMatches = function(musician) {
+
+//       Band.findAll({
+//         where: {
+//             [Op.or]: [
+//                 {primary_genre: musician.primary_genre},
+//                 {secondary_genre: musician.primary_genre},
+//                 {primary_genre: musician.secondary_genre},
+//                 {secondary_genre: musician.secondary_genre}
+//             ],
+//             [Op.or]: [
+//                 {primary_instrument: musician.primary_instrument},
+//                 {secondary_instrument: musician.primary_instrument},
+//                 {primary_instrument: musician.secondary_instrument},
+//                 {secondary_instrument: musician.secondary_instrument}
+//             ],
+//             musician: true,
+//             location: musician.location,
+//             availability: musician.availability
+//         },
+//             limit: 5
+//         })
+//     }
+
+//     // exactMatch(musician);
+
+//     var closeMatches = function(musician) {
+//         Band.findAll({
+//         where: {
+//             [Op.or]: [
+//                 {where: {
+//                     [Op.or]: [
+//                         {primary_genre: musician.primary_genre},
+//                         {secondary_genre: musician.primary_genre},
+//                         {primary_genre: musician.secondary_genre},
+//                         {secondary_genre: musician.secondary_genre}
+//                     ]
+//                 }},
+//                 {where: {
+//                     [Op.or]: [
+//                         {primary_instrument: musician.primary_instrument},
+//                         {secondary_instrument: musician.primary_instrument},
+//                         {primary_instrument: musician.secondary_instrument},
+//                         {secondary_instrument: musician.secondary_instrument}
+//                     ]
+//                 }}
+//             ],
+//             location: musician.location,
+//             availability: musician.availability
+//         },
+//         limit: 5
+//         })
+//     }
+
+// // closeMatch(musician);
   
 
-
+module.exports = matches;
 
 
 // function findMatch(musician) {

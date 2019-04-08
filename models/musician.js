@@ -24,6 +24,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         }, 
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1,20]
+            }
+        },
         band: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
@@ -50,13 +57,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         }, 
         secondary_genre: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 140]
-            }
-        }, 
-        schedule: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

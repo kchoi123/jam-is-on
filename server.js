@@ -6,7 +6,9 @@
 // =============================================================
 var express = require("express");
 var exphbs = require("express-handlebars")
-
+var passport = require('passport');
+var session = require('express-session');
+var env = require('dotenv').load()
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -18,6 +20,15 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Initialize passport, express session and passport session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 // Static directory
 app.use(express.static("public"));

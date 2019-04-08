@@ -1,5 +1,7 @@
 var db = require("../models");
 
+var matches = require("../public/match.js");
+
 
 // Routes
 // =============================================================
@@ -7,7 +9,10 @@ module.exports = function(app) {
 
   // GET route for getting all of the posts
   app.get("/", function(req, res) {
+
       res.render("index");
+
+
   });
 
   //get musicians

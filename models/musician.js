@@ -42,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         }, 
-        primay_genre: {
+        primary_genre: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

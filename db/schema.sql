@@ -6,7 +6,7 @@ CREATE TABLE musician
 (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
-	profile_pic TEXT NOT NULL,
+	profile_pic TEXT,
     email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE band
 (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
-	profile_pic TEXT NOT NULL,
+	profile_pic TEXT,
     email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,

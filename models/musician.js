@@ -10,11 +10,22 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
+        profile_pic: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1,20]
             }
         },
         location: {
@@ -24,12 +35,9 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         }, 
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1,20]
-            }
+        music_link: {
+            type: DataTypes.TEXT,
+            allowNull: true
         },
         band: {
             type: DataTypes.BOOLEAN,

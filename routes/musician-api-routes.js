@@ -89,14 +89,20 @@ module.exports = function(app) {
     // req.body.id and return the result to the user using res.json
 
     db.Musician.update({
-
+      name:req.body.name,
+      email:req.body.email,
+      location:req.body.location,
+      password:req.body.password,
+      band:req.body.band,
+      primary_instrument: req.body.primary_instrument,
+      primay_genre:req.body.primay_genre
     }, {
       where: {
         id: req.body.id
       },
     }).then(function(dbPost) {
       // We have access to the new dbPost as an argument inside of the callback function
-      res.render(dbPost);
+      res.render("musician-box",dbPost);
     });
   });
 };

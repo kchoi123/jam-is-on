@@ -6,36 +6,8 @@ module.exports = function(app) {
 
     // GET route for getting all of the posts
     app.get("/", function(req, res) {
-        db.Post.findAll({}).then(function(results) {
-            var placeHolder = [];
-
-            for (var i = 0; i < results.length; i++) {
-                placeHolder.push(results[i].dataValues);
-            }
-
-            var hbsObject = {
-                musician: placeHolder
-            };
-            res.render("index", hbsObject);
-        });
-
+        res.render("index");
     });
-
-    // Get route for returning posts of a specific musician
-//     app.get("/api/posts/musician/:musician", function(req, res) {
-//         // Add sequelize code to find all posts where the musician is equal to req.params.musician,
-//         // return the result to the user with res.json
-//         db.Post.findAll({}.then(function(results){})
-//         var placeHolder = [];
-
-//     }, {
-//         where: {
-//             musician: req.body.musician
-//         },
-//     }).then(function(dbPost){
-//         res.render(dbPost);
-//     });
-// });
 
 // Get route for retrieving a single post
 app.get("/api/posts/:id", function(req, res) {

@@ -8,6 +8,7 @@ CREATE TABLE musician
 	name VARCHAR(255) NOT NULL,
 	profile_pic TEXT NOT NULL,
     email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
 	music_link TEXT NOT NULL,
 	band BOOLEAN NOT NULL DEFAULT false,

@@ -134,14 +134,14 @@ module.exports = function(passport, musico, banda) {
             return bCrypt.compareSync(password, userpass);
         }
 
-        Bando.findOne({
+        Banda.findOne({
             where: {
                 email: email
             }
         }).then(function(user) {
 
             if (!user) {
-                Musicia.findOne({
+                Musico.findOne({
                     where: {
                         email: email
                     }

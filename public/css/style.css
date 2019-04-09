@@ -72,12 +72,12 @@ span {
 
 .elemnt {
     animation: xfade 10s 2s infinite;
-    background-image: url("Band.jpg");
+    background-image: url("/public/images/Band.jpg");
 }
 
 .elemnt1 {
     animation: xfade 10s infinite;
-    background-image: url("bands2.jpg");
+    background-image: url("/public/images/bands2.jpg");
 }
 
 @keyframes xfade {

@@ -1,6 +1,6 @@
 var Band = require("../models/band.js");
 
-var Op = Sequelize.Op;
+// var Op = Sequelize.Op;
 
 var matches = {
     exact: function(musician) {

@@ -12,7 +12,7 @@ CREATE TABLE musician
     location VARCHAR(255) NOT NULL,
 	music_link TEXT,
 	band BOOLEAN NOT NULL DEFAULT false,
-	primary_instrument VARCHAR(255) NOT NULL,
+	primary_instrument VARCHAR(255),
 	secondary_instrument VARCHAR(255),
 	primary_genre VARCHAR(255) NOT NULL,
 	secondary_genre VARCHAR(255),

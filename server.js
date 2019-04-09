@@ -8,7 +8,8 @@ var express = require("express");
 var exphbs = require("express-handlebars")
 var passport = require('passport');
 var session = require('express-session');
-var env = require('dotenv').load()
+// var env = require('dotenv').load()
+
 // Sets up the Express App
 // =============================================================
 var app = express();

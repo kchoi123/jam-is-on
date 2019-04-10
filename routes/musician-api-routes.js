@@ -43,7 +43,7 @@ module.exports = function (app) {
   app.get("/api/posts/musician/:musician", function (req, res) {
     // Add sequelize code to find all posts where the musician is equal to req.params.musician,
     // return the result to the user with res.json
-    db.Band.findAll({
+    matches.exact.findAll({
 
     }, {
         where: {

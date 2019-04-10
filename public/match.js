@@ -1,10 +1,13 @@
-var Band = require("../models/band.js");
+
 var Sequelize = require("sequelize");
+
+var db = require("../models");
+
 var Op = Sequelize.Op;
 
 var matches = {
     exact: function(musician) {
-        Band.findAll({
+        db.Band.findAll({
             where: {
                 [Op.or]: [
                     {primary_genre: musician.primary_genre},
@@ -27,7 +30,7 @@ var matches = {
     },
     
     close: function(musician) {
-        Band.findAll({
+        db.Band.findAll({
             where: {
                 [Op.or]: [
                     {where: {
@@ -57,7 +60,7 @@ var matches = {
 
 //     var exactMatches = function(musician) {
 
-//       Band.findAll({
+//       db.Band.findAll({
 //         where: {
 //             [Op.or]: [
 //                 {primary_genre: musician.primary_genre},

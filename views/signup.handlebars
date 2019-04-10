@@ -1,48 +1,125 @@
-<div class= "container">
-    <nav class="blue " role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="/images/logo.png"> </a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Sign In </a></li>
-            </ul>
+  <div class="container">
+    <div class="row">
 
-            <ul id="nav-mobile" class="sidenav">
-                <li>
-                    <a href="#!"></a>Sign In
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
-    <div class="container col s6">
-
-
-
-        <form id="signup" name="signup" method="post" action="/signup">
-
-            <!-- <label for="email">Email Address</label> -->
-            <input class="text form-control " name="email" type="email" placeholder="Enter email" required/>
-
+        <form class="col s12 ">
             <div class="row">
-                <div class="col s12 m6">
-                    <!-- <label for="firstname">Firstname</label> -->
-                    <input name="firstname" type="text" class="form-control" placeholder="First name" required/>
-                </div>
-                <div class="col s12 m6">
-                    <!-- <label for="lastname">Lastname</label> -->
-                    <input name="lastname" type="text" class="form-control " placeholder="Last name" required/>
+                <div class="input-field col s12">
+                    <input id="name" type="text">
+                    <label for="name">Name</label>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="profile_pic" type="text">
+                    <label for="profile_pic">Profile Picture URL</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="location" type="text">
+                    <label for="location">Location</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="music_link" type="text">
+                    <label for="music_link">Music Link</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="musician" type="text">
+                    <label for="musician">Musician (guitar,drums,etc.) </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select id="primary_instrument">
+                        <option value="" disabled selected>Choose your Instrument</option>
+                        <option value="guitar">Guitar</option>
+                        <option value="piano">Keyboard</option>
+                        <option value="drums">Percussion</option>
+                        <option value="bass">Bass Guitar</option>
+                        <option value="vocals">Vocal</option>
+                        <option value="other">Other</option>
+                     </select>
+                    <label>Primary Instrument</label>
+                </div>
 
-            <!-- <label for="password">Password</label> -->
-            <input name="password" type="password" class="form-control " id="InputPassword1" placeholder="Password" minlength="6" required/>
-            <input name="confirmPassword" type="password" class="form-control" id="InputPassword2" placeholder="Confirm Password" minlength="6" required/>
+                <div class="input-field col s6">
+                    <select id="secondary_instrument">
+                                <option value="" disabled selected>Choose your Secondary Instrument (optional)</option>
+                                <option value="guitar">Guitar</option>
+                                <option value="piano">Keyboard</option>
+                                <option value="drums">Percussion</option>
+                                <option value="bass">Bass Guitar</option>
+                                <option value="vocals">Vocal</option>
+                                <option value="other">Other</option>
+                        </select>
+                    <label>Secondary Instrument</label>
+                </div>
+                <div class="row"></div>
+                <div class="input-field col s6">
+                    <select id="primary_genre">
+                                <option value="" disabled selected>Choose your Genre</option>
+                                <option value="blues">Blues</option>
+                                <option value="jazz">Jazz</option>
+                                <option value="hip-hop">Hip-Hop</option>
+                                <option value="folk">Folk</option>
+                                <option value="funk">Funk</option>
+                                <option value="indie">Indie</option>
+                                <option value="punk">Punk</option>
+                                <option value="metal">Metal</option>
+                                <option value="r&b">R&B</option>
+                                <option value="rock">Rock</option>
+                                <option value="pop">Pop</option>
+                             </select>
+                    <label>Primary Genre</label>
+                </div>
 
-            <input class="btn " type="submit" value="Sign Up" id="sign-up-button" />
+                <div class="input-field col s6">
+                    <select id="seconday_genre">
+                            <option value="" disabled selected>Choose your Seconday Genre (optional)</option>
+                            <option value="blues">Blues</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="hip-hop">Hip-Hop</option>
+                            <option value="folk">Folk</option>
+                            <option value="funk">Funk</option>
+                            <option value="indie">Indie</option>
+                            <option value="punk">Punk</option>
+                            <option value="metal">Metal</option>
+                            <option value="r&b">R&B</option>
+                            <option value="rock">Rock</option>
+                            <option value="pop">Pop</option>
+                         </select>
+                    <label>Secondary Genre (optional)</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
 
+                        <select id="availability">
+                                <option value="" disabled selected> Look for availablity</option>
+                                <option value="1"> Weekends </option>
+                                <option value="2"> Weekdays </option>
+                                </select>
+                        <label for="availability">Your Availability (Weekends/Weekdays)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                              <i class="mdi-content-send right"></i>
+                            </button>
+                    </div>
+                </div>
+
+            </div>
         </form>
-
     </div>
 </div>
-
-

@@ -4,7 +4,7 @@ var matches = require("../public/match.js");
 
 var passport = require("passport");
 
-
+var authController = require("../controllers/authcontroller.js");
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -17,17 +17,17 @@ module.exports = function (app) {
   app.get("/signin", function (req, res) {
     res.render("signin");
   });
-  app.post("signin", passport.authenticate('local-signin'), {
+  app.post("signin", passport.authenticate('local-signin', {
     successRedirect: 'musician-box',
     failureRedirect: '/signup'
-  });
+  }));
   app.get("/signup", function (req, res) {
     res.render("signup");
   });
-  app.post("/signup", passport.authenticate('local-signup'), {
+  app.post("/signup", passport.authenticate('local-signup', {
     successRedirect: '/musician-box',
     failureRedirect: '/signup'
-  });
+  }));
   //logout
   app.get('/logout', authController.logout);
 

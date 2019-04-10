@@ -22,7 +22,7 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Initialize passport, express session and passport session
+// Initialize passport, express session and passport session.
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
@@ -43,6 +43,9 @@ app.set("view engine", "handlebars");
 // require("./routes/html-routes.js")(app);
 require("./routes/band-api-routes.js")(app);
 require("./routes/musician-api-routes.js")(app);
+
+// load passport strategies
+require('./config/passport.js')(passport, db.Musician, db.Band);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

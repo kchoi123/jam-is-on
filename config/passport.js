@@ -1,41 +1,53 @@
-// This file contains our passport strategies. We will use the user model and
-// passport.
+// This file contains our passport strategies. We will use the band and musician
+// models and passport.
 
 // needed to secure passwords
 var bCrypt = require('bcrypt-nodejs');
 
-module.exports = function(passport, user) {
-    // Inside this block, we initialize the passport-local strategy, and the user
-    // model, which will be passed as an argument.
-    var User = user;
-    var LocalStrategy = require('passport-local').Strategy;
+module.exports = function(passport, musico, banda) {
+    // Initialize the passport-local strategy, and musician and band models to be
+    // passed as argument.
+    var Musico = musico;
+    var Banda = banda;
+    var musician = require('passport-local').Strategy;
+    var band = require('passport-local').Strategy;
 
-
-    // Then we define our custom strategy with our instance of the LocalStrategy
+    // Then we define our custom strategy with our instance of the musician
     // like this:
-    passport.use('local-signup', new LocalStrategy(
+    passport.use('local-signup', new musician(
 
         {
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true // allows us to pass the entire request to the
-        // callback, which is particularly useful for signing up.
+        name: 'name',
+        profile_pic: 'profile_pic',
+        email: 'email',
+        password: 'password',
+        location: 'location',
+        music_link: 'music_link',
+        band: 'band',
+        primary_instrument: 'primary_instrument',
+        secondary_instrument: 'secondary_instrument',
+        primary_genre: 'primary_genre',
+        secondary_genre: 'secondary_genre',
+
+        // allows us to pass the entire request to the callback, useful for
+        // signing up.
+        passReqToCallback: true
         },
 
         // Callback function to handle storing user's details
         function(req, email, password, done) {
-            // First, we add our hashed password generating function inside the
-            // callback function.
+            // First, add hashed password generating function inside the callback
+            // function.
             var generateHash = function(password) {
 
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 
             };
 
-            // Then, using the Sequelize user model we initialized earlier as
+            // Using Sequelize  model we initialized earlier as
             // User, we check to see if the user already exists, and if not we
             // add them.
-            User.findOne({
+            Musico.findOne({
                 where: {
                     email: email
                 }
@@ -98,7 +110,7 @@ module.exports = function(passport, user) {
     });
 
     //LOCAL SIGNIN
-    passport.use('local-signin', new LocalStrategy(
+    passport.use('local-signin', new musician(
 
     {
         // by default, local strategy uses username and password, we will
@@ -122,14 +134,14 @@ module.exports = function(passport, user) {
             return bCrypt.compareSync(password, userpass);
         }
 
-        Bando.findOne({
+        Banda.findOne({
             where: {
                 email: email
             }
         }).then(function(user) {
 
             if (!user) {
-                Musicia.findOne({
+                Musico.findOne({
                     where: {
                         email: email
                     }

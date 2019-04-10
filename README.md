@@ -8,7 +8,7 @@ Use the link to see the deployed site: https://github.com/kchoi123/jam-is-on
 
 ## Welcome to Jam-is-on!
 
-<img src="./images/1.png" width= "350px">
+<img src="./images/1new.png" width= "350px">
 
 ---
 

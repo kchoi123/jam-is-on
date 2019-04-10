@@ -39,7 +39,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: true
         },
-        musician: {
+        on_lookout: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }, 
@@ -71,6 +71,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         }, 
+        bio: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }
     });
     return Band;
 };

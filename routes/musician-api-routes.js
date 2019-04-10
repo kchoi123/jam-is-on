@@ -40,7 +40,7 @@ module.exports = function (app) {
   app.get('/logout', authController.logout);
 
   //get musicians
-  app.get("/musician", function (req, res) {
+  app.get("/musicianBox", function (req, res) {
     matches.close({
     }).then(function (results) {
       res.render("musicianBox", results);

@@ -11,7 +11,7 @@ exports.signin = function(req, res) {
 }
 
 // Controller route for index
-exports.musician-box = function(req, res) {
+exports.musicianBox = function(req, res) {
     res.render('musician-box');
 }
 

@@ -41,8 +41,8 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 // require("./routes/html-routes.js")(app);
-require("./routes/band-api-routes.js")(app);
-require("./routes/musician-api-routes.js")(app);
+require("./routes/band-api-routes.js")(app,passport);
+require("./routes/musician-api-routes.js")(app,passport);
 
 // load passport strategies
 require('./config/passport.js')(passport, db.Musician, db.Band);

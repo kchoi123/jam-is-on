@@ -1,11 +1,9 @@
+
 module.exports = function (sequelize, DataTypes) {
     var Musician = sequelize.define("Musician", {
-        name: {
+        userName: {
             type: DataTypes.STRING,
-            // AllowNull is a flag that restricts a burger from being entered if it doesn't
-            // have a text value
             allowNull: false,
-            // len is a validation that checks that our burger is between 1 and 140 characters
             validate: {
                 len: [1, 140]
             }
@@ -21,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        password: {
+        userPassword: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -52,7 +50,7 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         secondary_instrument: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -66,11 +64,18 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         secondary_genre: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
         }, 
+        availability: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
+        },
         bio: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -79,5 +84,15 @@ module.exports = function (sequelize, DataTypes) {
             }
         } 
     });
+
+    Musician.associate = function(models) {
+
+        Musician.belongsTo(models.Band, {
+          foreignKey: {
+            allowNull: true
+          }
+        });
+      };
+    
     return Musician;
 };

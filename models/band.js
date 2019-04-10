@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
     var Band = sequelize.define("Band", {
         name: {
@@ -21,13 +22,6 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1,20]
-            }
-        },
         location: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -45,14 +39,14 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         primary_instrument: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
         }, 
         secondary_instrument: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -66,11 +60,18 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         secondary_genre: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
         }, 
+        availability: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
+        },
         bio: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -79,5 +80,16 @@ module.exports = function (sequelize, DataTypes) {
             }
         }
     });
+
+    Band.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Band.hasMany(models.Musician, {
+
+        });
+      };
+
     return Band;
 };
+
+

@@ -46,3 +46,10 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.band {
+    width: 70em;
+    height: auto;
+    margin-top: 5em;
+    text-align: center;
+}

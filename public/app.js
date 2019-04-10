@@ -1,9 +1,8 @@
-$(function () {
+$(function() {
 
-    
 
     // New user for MUSICIAN
-    $("#newUser").on("submit", function (event) {
+    $("#newUser").on("submit", function(event) {
         event.preventDefault();
 
         var newUser = {
@@ -20,13 +19,13 @@ $(function () {
             secondary_genre: $("#secondary_genre").val().trim()
         }
 
-        $.post("/signUpM", newUser).then(function (res) {
+        $.post("/signUpM", newUser).then(function(res) {
             $("#newUserMessage").text(res);
         })
     });
 
     // New user for BAND
-    $("#newUser").on("submit", function (event) {
+    $("#newUser").on("submit", function(event) {
         event.preventDefault();
 
         var newUser = {
@@ -43,10 +42,12 @@ $(function () {
             secondary_genre: $("#username").val().trim()
         }
 
-        $.post("/signUpB", newUser).then(function (res) {
+        $.post("/signUpB", newUser).then(function(res) {
             $("#newUserMessage").text(res);
         })
     });
 
 
-}
+
+
+});

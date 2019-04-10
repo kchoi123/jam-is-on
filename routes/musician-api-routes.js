@@ -40,12 +40,7 @@ module.exports = function (app) {
   app.get('/logout', authController.logout);
 
   //get musicians
-  app.get("/musicianBox", function (req, res) {
-    matches.close({
-    }).then(function (results) {
-      res.render("musicianBox", results);
-    });
-  });
+  app.get("/musicianBox", isLoggedIn, authController.musicianBox);
 
   // Get route for returning posts for musician
   app.get("/api/posts/musician/:musician", function (req, res) {
@@ -61,5 +56,13 @@ module.exports = function (app) {
         res.render("musicianBox", dbPost);
       });
   });
+
+
+  
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/signin');
+}
 };
 

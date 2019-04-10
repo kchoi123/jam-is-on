@@ -21,7 +21,7 @@ module.exports = function (app) {
 
   // Post route to verify login
   app.post("signin", passport.authenticate('local-signin', {
-    successRedirect: 'musician-box',
+    successRedirect: 'musicianBox',
     failureRedirect: '/signup'
   }));
 
@@ -32,7 +32,7 @@ module.exports = function (app) {
 
   // Post route from signup to db
   app.post("/signup", passport.authenticate('local-signup', {
-    successRedirect: '/musician-box',
+    successRedirect: '/musicianBox',
     failureRedirect: '/signup'
   }));
 
@@ -43,7 +43,7 @@ module.exports = function (app) {
   app.get("/musician", function (req, res) {
     matches.close({
     }).then(function (results) {
-      res.render("musician-box", results);
+      res.render("musicianBox", results);
     });
   });
 
@@ -58,7 +58,7 @@ module.exports = function (app) {
           band: req.body.band
         },
       }).then(function (dbPost) {
-        res.render("musician-box", dbPost);
+        res.render("musicianBox", dbPost);
       });
   });
 };

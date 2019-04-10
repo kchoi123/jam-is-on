@@ -13,21 +13,29 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index");
   });
+
   //Get route for signin
   app.get("/signin", function (req, res) {
     res.render("signin");
   });
+
+  // Post route to verify login
   app.post("signin", passport.authenticate('local-signin', {
     successRedirect: 'musician-box',
     failureRedirect: '/signup'
   }));
+
+  // Get route for signup
   app.get("/signup", function (req, res) {
     res.render("signup");
   });
+
+  // Post route from signup to db
   app.post("/signup", passport.authenticate('local-signup', {
     successRedirect: '/musician-box',
     failureRedirect: '/signup'
   }));
+
   //logout
   app.get('/logout', authController.logout);
 
@@ -52,34 +60,5 @@ module.exports = function (app) {
       }).then(function (dbPost) {
         res.render("musician-box", dbPost);
       });
-  });
-
-  // Get route for retrieving a single post
-  app.get("/api/posts/:id", function (req, res) {
-    // Add sequelize code to find a single post where the id is equal to req.params.id,
-    // return the result to the user with res.json
-    db.Musician.findAll({
-
-    }, {
-        where: {
-          id: req.body.id
-        },
-      }).then(function (dbPost) {
-        res.render(dbPost);
-      });
-
-  });
-
-  // POST route for saving a new post
-  app.post("/api/posts", function (req, res) {
-    // Add sequelize code for creating a post using req.body,
-    // then return the result using res.json
-    db.Musician.create({
-
-    }).then(function (dbPost) {
-      // We have access to the new dbPost as an argument inside of the callback function
-      res.render(dbPost);
-    });
-
   });
 };

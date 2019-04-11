@@ -1,6 +1,15 @@
 $(function() {
+    //dropdown for sign up form
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
 
 
+
+    $(document).ready(function() {
+        $('select').formSelect();
+    });
     // New user for MUSICIAN
     $("#newUser").on("submit", function(event) {
         event.preventDefault();
@@ -29,7 +38,3 @@ $(function() {
 });
 
 //selecting options in sign-up
-
-$(document).ready(function() {
-    $('select').material_select();
-});

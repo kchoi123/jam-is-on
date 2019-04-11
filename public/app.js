@@ -1,17 +1,16 @@
-$(function() {
+$(function () {
     //dropdown for sign up form
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, options);
     });
 
-
-
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('select').formSelect();
     });
+
     // New user for MUSICIAN
-    $("#newUser").on("submit", function(event) {
+    $("#newUser").on("submit", function (event) {
         event.preventDefault();
 
         var newUser = {
@@ -30,11 +29,39 @@ $(function() {
             bio: $("#bio").val().trim()
         }
 
-        $.post("/signup", newUser).then(function(res) {
+        $.post("/signup", newUser).then(function (res) {
             $("#newUserMessage").text(res);
         })
     });
 
-});
+    //sidenav to work
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+    });
 
-//selecting options in sign-up
+    $('.sidenav').sidenav();
+
+    $("#createAccount").on("click", function (event) {
+        event.preventDefault();
+
+        var newUser = {
+            name: $("#firstName").val().trim(),
+            profile_pic: $("#lastName").val().trim(),
+            email: $("#username").val().trim(),
+            password: $("#password").val().trim(),
+            location: $("#firstName").val().trim(),
+            music_link: $("#lastName").val().trim(),
+            musician: $("#username").val().trim(),
+            primary_instrument: $("#password").val().trim(),
+            secondary_instrument: $("#firstName").val().trim(),
+            primary_genre: $("#lastName").val().trim(),
+            secondary_genre: $("#username").val().trim()
+        }
+
+        $.post("/signup", newUser).then(function (res) {
+
+        });
+    });
+
+});

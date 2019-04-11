@@ -36,13 +36,6 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  // get musician route
-  app.get("/musician", function (req, res) {
-    matches.exact(musician);
-    matches.close(musician);
-    res.render("musicianPage");
-  });
-
   //Get route for signin
   app.get("/signin", function (req, res) {
     res.render("signin");
@@ -65,16 +58,23 @@ module.exports = function (app) {
     failureRedirect: '/signup'
   }));
 
-  //logout
-  app.get('/logout', authController.logout);
-
-  //get musicians
-  app.get("/musicianPage", isLoggedIn, authController.musicianPage);
+  // get musician route
+  app.get("/musician", function (req, res) {
+    matches.exact(musician);
+    matches.close(musician);
+    res.render("musicianPage");
+  });
 
   // Get route for returning posts for musician
   app.get("/api/posts/musician/:musician", function (req, res) {
     matches.exact(musician);
   });
+
+  //get musicians
+  app.get("/musicianPage", isLoggedIn, authController.musicianPage);
+
+  //logout
+  app.get('/logout', authController.logout);
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

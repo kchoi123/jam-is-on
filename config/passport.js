@@ -29,6 +29,11 @@ module.exports = function (passport, musician) {
 
         // Callback function to handle storing user's details
         function (req, email, password, done) {
+            // Testing
+            console.log(req.body);
+            console.log(email);
+            console.log(password);
+
             // First, we add our hashed password generating function inside the callback function.
             var generateHash = function (password) {
 

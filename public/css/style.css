@@ -53,3 +53,11 @@ html {
     margin-top: 5em;
     text-align: center;
 }
+
+#logForm {
+    background-color: white;
+    padding: 20px;
+    border: 5px solid;
+    border-color: white;
+    opacity: .8;
+}

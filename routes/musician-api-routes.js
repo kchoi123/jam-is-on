@@ -37,17 +37,8 @@ module.exports = function (app) {
   });
 
   app.get("/musician", function (req, res) {
-  //   db.Band.findAll({
-  //     where: {
-  //         [Op.or]: [{primary_genre: musician.primary_genre}, {primary_genre: musician.secondary_genre}]
-  //     },
-  //     limit: 2
-  // }).then(function(data) {
-  //     console.log(data[0].name);
-  // })
   matches.exact(musician);
   matches.close(musician);
-
 })
 
 
@@ -103,5 +94,3 @@ module.exports = function (app) {
     res.redirect('/signin');
 }
 };
-
-

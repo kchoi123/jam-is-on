@@ -41,7 +41,11 @@ module.exports = function (app) {
   matches.close(musician);
 })
 
+//get gor musician route
 
+  app.get("/musician", function(req,res){
+    res.render("musicianPage");
+  });
   //Get route for signin
   app.get("/signin", function (req, res) {
     res.render("signin");
@@ -49,7 +53,7 @@ module.exports = function (app) {
 
   // Post route to verify login
   app.post("signin", passport.authenticate('local-signin', {
-    successRedirect: 'musicianBox',
+    successRedirect: 'musicianPage',
     failureRedirect: '/signup'
   }));
 
@@ -61,7 +65,7 @@ module.exports = function (app) {
 
   // Post route from signup to db
   app.post("/signup", passport.authenticate('local-signup', {
-    successRedirect: '/musicianBox',
+    successRedirect: '/musicianPage',
     failureRedirect: '/signup'
   }));
 
@@ -69,25 +73,13 @@ module.exports = function (app) {
   app.get('/logout', authController.logout);
 
   //get musicians
-  app.get("/musicianBox", isLoggedIn, authController.musicianBox);
+  app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
   // Get route for returning posts for musician
   app.get("/api/posts/musician/:musician", function (req, res) {
-    // Add sequelize code to find all posts where the musician is equal to req.params.musician,
-    // return the result to the user with res.json
-    matches.exact.findAll({
-
-    }, {
-        where: {
-          band: req.body.band
-        },
-      }).then(function (dbPost) {
-        res.render("musicianBox", dbPost);
-      });
+    matches.exact(musician);     
   });
-
-
-  
+ 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

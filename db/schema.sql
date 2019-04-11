@@ -1,6 +1,5 @@
 DROP DATABASE IF EXISTS jamison_db;
-CREATE DATABASE jamison_db;
-
+CREATE DATABASE jamison_db
 USE jamison_db;
 
 CREATE TABLE Musicians
@@ -19,6 +18,8 @@ CREATE TABLE Musicians
 	secondary_genre VARCHAR(255),
 	availability VARCHAR(255),
 	bio TEXT,
+	createdAt DATETIME,
+	updatedAt DATETIME,
 	PRIMARY KEY (id)
 );
 
@@ -37,6 +38,8 @@ CREATE TABLE Bands
 	secondary_genre VARCHAR(255),
 	availability VARCHAR(255),
 	bio TEXT,
+	createdAt DATETIME,
+	updatedAt DATETIME,
 	PRIMARY KEY (id)
 ); 
 

@@ -1,20 +1,40 @@
-<div class="container-fluid" id="loginBody">
-        <br>
-        <div class="container" id="logoReg">
-             Jam-Is-On 
-        </div>
-    <br>
+<div class="row">
+  <nav class="blue darken-4" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="logo.png"> </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Sign In </a></li>
+            </ul>
 
-    <br>
-        <div class="container" id="logForm">
-            <form id="signin" name="signin" method="post" action="signin">
-                {{!-- <label for="email">Email Address</label> --}}
-                <input class="text form-control mt-3" name="email" type="text" id="userEmail" placeholder="Email" required/>
-                {{!-- <label for="password">Password</label> --}}
-                <input class="form-control mt-3" name="password" type="password" id="userPw" placeholder="Password" required/>
-                <input class="btn text-center mt-3" type="submit" value="Sign In" id="userLogin"/>
-            </form>
+            <ul id="nav-mobile" class="sidenav">
+                <li>
+                    <a href="#!"></a>Sign In
+                </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
+    </nav>
 
-        <br>
+    <div class="container">
+        <h1 class="header center white-text"> <img class="logo" src="mainlogo.png"></h1>
+        <div class="row center" id="logForm">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="text form-control " name="email" type="text" id="userEmail" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="password" type="password" id="userPw">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <input class="btn text-center blue darken-4 " type="submit" value="Sign In" id="userLogin" required />
+
+            <br><br></div>
+
     </div>
+</div>
+
+

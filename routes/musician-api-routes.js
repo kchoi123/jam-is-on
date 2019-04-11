@@ -1,10 +1,31 @@
 var db = require("../models");
 
-var matches = require("../public/match.js");
+var matches = require("./match.js");
+
+var Sequelize = require("sequelize");
+
+var Op = Sequelize.Op;
 
 var passport = require("passport");
 
 var authController = require("../controllers/authcontroller.js");
+
+var musician = {
+  userName: 'Al Smith',
+  profile_pic: '#',
+  email: 'alpal@123.com',
+  userPassword: 'password',
+  location: 'San Francisco',
+  music_link: '#',
+  on_lookout: true, 
+  primary_instrument: "guitar",
+  secondary_instrument: "piano",
+  primary_genre: 'folk',
+  secondary_genre: "pop", 
+  availability: "weekends",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet sollicitudin sem, sed ullamcorper elit. Duis ultrices laoreet mauris, ac imperdiet nibh blandit nec. Cras ultricies dictum ullamcorper. Nulla blandit pretium nunc eget lacinia. Vivamus ac erat venenatis, pulvinar orci eu, accumsan quam. Nulla vitae pretium velit. Donec in turpis urna. Aliquam ultricies posuere est, vulputate faucibus risus ornare sed. In consectetur sed risus sit amet volutpat. In mauris ante, commodo iaculis feugiat sed, cursus sed nibh. Vestibulum sodales a orci sit amet scelerisque. Aliquam leo magna, suscipit id molestie eu, vehicula tincidunt dui. Vivamus ac molestie mauris. Integer eget condimentum nisl. Ut quam est, tempor at ultrices vitae, vulputate vel ligula."
+}
+
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -14,6 +35,21 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index");
   });
+
+  app.get("/musician", function (req, res) {
+  //   db.Band.findAll({
+  //     where: {
+  //         [Op.or]: [{primary_genre: musician.primary_genre}, {primary_genre: musician.secondary_genre}]
+  //     },
+  //     limit: 2
+  // }).then(function(data) {
+  //     console.log(data[0].name);
+  // })
+  matches.exact(musician);
+  matches.close(musician);
+
+})
+
 
   //Get route for signin
   app.get("/signin", function (req, res) {

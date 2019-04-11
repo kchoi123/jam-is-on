@@ -17,11 +17,11 @@ var musician = {
   userPassword: 'password',
   location: 'San Francisco',
   music_link: '#',
-  on_lookout: true, 
+  on_lookout: true,
   primary_instrument: "guitar",
   secondary_instrument: "piano",
   primary_genre: 'folk',
-  secondary_genre: "pop", 
+  secondary_genre: "pop",
   availability: "weekends",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet sollicitudin sem, sed ullamcorper elit. Duis ultrices laoreet mauris, ac imperdiet nibh blandit nec. Cras ultricies dictum ullamcorper. Nulla blandit pretium nunc eget lacinia. Vivamus ac erat venenatis, pulvinar orci eu, accumsan quam. Nulla vitae pretium velit. Donec in turpis urna. Aliquam ultricies posuere est, vulputate faucibus risus ornare sed. In consectetur sed risus sit amet volutpat. In mauris ante, commodo iaculis feugiat sed, cursus sed nibh. Vestibulum sodales a orci sit amet scelerisque. Aliquam leo magna, suscipit id molestie eu, vehicula tincidunt dui. Vivamus ac molestie mauris. Integer eget condimentum nisl. Ut quam est, tempor at ultrices vitae, vulputate vel ligula."
 }
@@ -36,16 +36,13 @@ module.exports = function (app) {
     res.render("index");
   });
 
+  // get musician route
   app.get("/musician", function (req, res) {
-  matches.exact(musician);
-  matches.close(musician);
-})
-
-//get gor musician route
-
-  app.get("/musician", function(req,res){
+    matches.exact(musician);
+    matches.close(musician);
     res.render("musicianPage");
   });
+
   //Get route for signin
   app.get("/signin", function (req, res) {
     res.render("signin");
@@ -56,7 +53,6 @@ module.exports = function (app) {
     successRedirect: 'musicianPage',
     failureRedirect: '/signup'
   }));
-
 
   // Get route for signup
   app.get("/signup", function (req, res) {
@@ -77,12 +73,12 @@ module.exports = function (app) {
 
   // Get route for returning posts for musician
   app.get("/api/posts/musician/:musician", function (req, res) {
-    matches.exact(musician);     
+    matches.exact(musician);
   });
- 
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
-        return next();
+      return next();
     res.redirect('/signin');
-}
+  }
 };

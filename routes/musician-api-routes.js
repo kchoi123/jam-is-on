@@ -9,6 +9,7 @@ var authController = require("../controllers/authcontroller.js");
 // =============================================================
 module.exports = function(app) {
 
+
     // GET route for getting all of the posts
     app.get("/", function(req, res) {
         res.render("index");
@@ -24,6 +25,7 @@ module.exports = function(app) {
         successRedirect: 'musicianBox',
         failureRedirect: '/signup'
     }));
+
 
     // Get route for signup
     app.get("/signup", function(req, res) {

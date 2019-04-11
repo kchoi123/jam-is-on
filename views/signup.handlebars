@@ -1,5 +1,22 @@
+  <div class="row">
+  <nav class="blue darken-4" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="logo.png"> </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Sign In </a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li>
+                    <a href="#!"></a>Sign In
+                </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
   <div class="container">
-    <div class="row">
+    <div class="row" id="logForm">
 
         <form class="col s12 ">
             <div class="row">
@@ -110,7 +127,13 @@
                                 </select>
                         <label for="availability">Your Availability (Weekends/Weekdays)</label>
                     </div>
-                </div>
+                     <div class="row">
+                         <div class="input-field col s12">
+                             <input id="password" type="password">
+                             <label for="password">Password</label>
+                        </div>
+                    </div>
+                
                 <div class="row">
                     <div class="input-field col s12">
                         <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit

@@ -27,3 +27,9 @@ $(function() {
     });
 
 });
+
+//selecting options in sign-up
+
+$(document).ready(function() {
+    $('select').material_select();
+});

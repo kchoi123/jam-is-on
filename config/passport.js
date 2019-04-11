@@ -1,89 +1,84 @@
-// This file contains our passport strategies. We will use the band and musician
-// models and passport.
+// This file contains our passport strategies. We will use the user model and passport.
 
 // needed to secure passwords
 var bCrypt = require('bcrypt-nodejs');
 
-module.exports = function(passport, musico, banda) {
-    // Initialize the passport-local strategy, and musician and band models to be
-    // passed as argument.
-    var Musico = musico;
-    var Banda = banda;
-    var musician = require('passport-local').Strategy;
-    var band = require('passport-local').Strategy;
+module.exports = function (passport, musician) {
+    // Inside this block, we initialize the passport-local strategy, and the user model, which will be passed as an argument.
+    var Musician = musician;
+    var LocalStrategy = require('passport-local').Strategy;
 
-    // Then we define our custom strategy with our instance of the musician
-    // like this:
-    passport.use('local-signup', new musician(
+
+    // Then we define our custom strategy with our instance of the LocalStrategy like this:
+    passport.use('local-signup', new LocalStrategy(
 
         {
-        name: 'name',
-        profile_pic: 'profile_pic',
-        email: 'email',
-        password: 'password',
-        location: 'location',
-        music_link: 'music_link',
-        band: 'band',
-        primary_instrument: 'primary_instrument',
-        secondary_instrument: 'secondary_instrument',
-        primary_genre: 'primary_genre',
-        secondary_genre: 'secondary_genre',
-
-        // allows us to pass the entire request to the callback, useful for
-        // signing up.
-        passReqToCallback: true
+            userName: 'userName',
+            profile_pic: 'profile_pic',
+            email: 'email',
+            userPassword: 'password',
+            location: 'location',
+            music_link: 'music_link',
+            on_lookout: 'lookout',
+            band: 'band',
+            primary_instrument: 'primary_instrument',
+            secondary_instrument: 'secondary_instrument',
+            primary_genre: 'primary_genre',
+            secondary_genre: 'secondary_genre',
+            availibility: "availibility",
+            bio: "bio",
+            passReqToCallback: true // allows us to pass the entire request to the callback, which is particularly useful for signing up.
         },
 
         // Callback function to handle storing user's details
-        function(req, email, password, done) {
-            // First, add hashed password generating function inside the callback
-            // function.
-            var generateHash = function(password) {
+        function (req, email, password, done) {
+            // First, we add our hashed password generating function inside the callback function.
+            var generateHash = function (password) {
 
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 
             };
 
-            // Using Sequelize  model we initialized earlier as
-            // User, we check to see if the user already exists, and if not we
-            // add them.
-            Musico.findOne({
+            // Then, using the Sequelize user model we initialized earlier as User, we check to see if the user already exists, and if not we add them.
+            Musician.findOne({
                 where: {
                     email: email
                 }
-            }).then(function(user) {
-                if (user) {
+            }).then(function (musician) {
+                if (musician) {
                     return done(null, false, {
                         message: 'That email is already taken'
                     });
                 } else {
-                    var userPassword = generateHash(password);
-                    // Below, notice that the values in the data object are
-                    // gotten from the req.body object which contains the input
-                    // from our signup form.
+                    var musicianPassword = generateHash(password);
+                    // Below, notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 
                     var data =
-                        {
-                            email: email,
+                    {
+                        userName: req.body.username,
+                        profile_pic: req.body.profilepic,
+                        email: email,
+                        userPassword: musicianPassword, //referencing password above
+                        location: req.body.location,
+                        music_link: req.body.musiclink,
+                        on_lookout: req.body.lookout,
+                        band: req.body.band,
+                        primary_instrument: req.body.pinst,
+                        secondary_instrument: req.body.sinst,
+                        primary_genre: req.body.pgenre,
+                        secondary_genre: req.body.sgenre,
+                        availibility: req.body.availibility,
+                        bio: req.body.bio
 
-                            password: userPassword,
+                    };
 
-                            firstName: req.body.firstname,
-
-                            lastName: req.body.lastname
-
-                        };
-
-                    // User.create() is a Sequelize method for adding new entries
-                    // to the database. Notice that the values in the data object
-                    // are gotten from the req.body object which contains the
-                    // input from our signup form.
-                    User.create(data).then(function(newUser, created) {
-                        if (!newUser) {
+                    // User.create() is a Sequelize method for adding new entries to the database. Notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 
+                    Musician.create(data).then(function (newMusician, created) {
+                        if (!newMusician) {
                             return done(null, false);
                         }
 
-                        if (newUser) {
-                            return done(null, newUser);
+                        if (newMusician) {
+                            return done(null, newMusician);
                         }
                     });
                 }
@@ -92,96 +87,75 @@ module.exports = function(passport, musico, banda) {
     ));
 
     // Serialize function to save the user id to the session
-    passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    passport.serializeUser(function (musician, done) {
+        done(null, musician.id);
     });
 
-    // deserialize user
-    passport.deserializeUser(function(id, done) {
+    // deserialize user 
+    passport.deserializeUser(function (id, done) {
 
-        User.findById(id).then(function(user) { // Gets the user
-            if (user) { // If successful, an instance of the sequelize model is
-            // returned
-            done(null, user.get());
+        Musician.findById(id).then(function (musician) { // Gets the user
+            if (musician) { // If successful, an instance of the sequelize model is returned
+                done(null, musician.get());
             } else {
-            done(user.errors, null);
+                done(musician.errors, null);
             }
         });
     });
 
     //LOCAL SIGNIN
-    passport.use('local-signin', new musician(
+    passport.use('local-signin', new LocalStrategy(
 
-    {
-        // by default, local strategy uses username and password, we will
-        // override with email
-        usernameField: 'email',
+        {
+            // by default, local strategy uses username and password, we will override with email
+            usernameField: 'email',
 
-        passwordField: 'password',
+            passwordField: 'password',
 
-        passReqToCallback: true // allows us to pass back the entire request to
-        // the callback, which is particularly useful for signing up.
+            passReqToCallback: true // allows us to pass back the entire request to the callback, which is particularly useful for signing up.
 
-    },
+        },
 
-    function(req, email, password, done) {
-        var User = user;
+        function (req, email, password, done) {
+            var Musician = musician;
 
-        // The isValidPassword function compares the password entered with the
-        // bCrypt comparison method since we stored our password with bcrypt. If
-        // details are correct, user will sign in
-        var isValidPassword = function(userpass, password) {
-            return bCrypt.compareSync(password, userpass);
-        }
-
-        Banda.findOne({
-            where: {
-                email: email
+            // The isValidPassword function compares the password entered with the bCrypt comparison method since we stored our password with bcrypt. If details are correct, user will sign in
+            var isValidPassword = function (musicianPass, password) {
+                return bCrypt.compareSync(password, musicianPass);
             }
-        }).then(function(user) {
 
-            if (!user) {
-                Musico.findOne({
-                    where: {
-                        email: email
-                    }
-                }).then(function(user2) {
-                    if (!user2) {
-                        return done(null, false, {
-                            message: 'Email does not exist'
-                        });
-                    }
-                    if (!isValidPassword(user2.password, password)) {
-                        return done(null, false, {
-                            message: 'Incorrect password.'
-                        });
-                    }
-                    var userinfo = user2.get();
-                    return done(null, userinfo);
-                }).catch(function(err) {
-                    console.log("Error:", err);
+            Musician.findOne({
+                where: {
+                    email: email
+                }
+            }).then(function (musician) {
+
+                if (!musician) {
                     return done(null, false, {
-                        message: 'Something went wrong with your Signin'
+                        message: 'Email does not exist'
                     });
-                });
-            }
 
-            if (!isValidPassword(user.password, password)) {
+                }
+
+                if (!isValidPassword(musician.password, password)) {
+                    return done(null, false, {
+                        message: 'Incorrect password.'
+                    });
+
+                }
+
+
+                var musicianInfo = musician.get();
+                return done(null, musicianInfo);
+
+
+            }).catch(function (err) {
+
+                console.log("Error:", err);
+
                 return done(null, false, {
-                    message: 'Incorrect password.'
+                    message: 'Something went wrong with your Signin'
                 });
-            }
-            var userinfo = user.get();
-            return done(null, userinfo);
-
-
-        }).catch(function(err) {
-
-            console.log("Error:", err);
-
-            return done(null, false, {
-                message: 'Something went wrong with your Signin'
             });
-        });
-    }));
+        }));
 }

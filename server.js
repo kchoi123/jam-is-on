@@ -5,7 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-var exphbs = require("express-handlebars")
+var exphbs = require("express-handlebars");
 var passport = require('passport');
 var session = require('express-session');
 // var env = require('dotenv').load()
@@ -41,11 +41,11 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 // require("./routes/html-routes.js")(app);
-require("./routes/band-api-routes.js")(app);
-require("./routes/musician-api-routes.js")(app);
+require("./routes/band-api-routes.js")(app,passport);
+require("./routes/musician-api-routes.js")(app,passport);
 
 // load passport strategies
-require('./config/passport.js')(passport, db.Musician, db.Band);
+require('./config/passport.js')(passport, db.Musician);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

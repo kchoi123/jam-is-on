@@ -11,9 +11,10 @@ exports.signin = function(req, res) {
 }
 
 // Controller route for index
-exports.musician-box = function(req, res) {
-    res.render('musician-box');
+exports.musicianBox = function(req, res) {
+    res.render('musicianBox');
 }
+
 
 // Controller route for logout
 exports.logout = function(req, res) {

@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS jamison_db;
-CREATE DATABASE jamison_db
+CREATE DATABASE jamison_db;
 USE jamison_db;
 
 CREATE TABLE Musicians

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/kchoi123/jam-is-on#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "^0.1.1",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",

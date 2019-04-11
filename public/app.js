@@ -29,7 +29,9 @@ $(function () {
             bio: $("#bio").val().trim()
         }
 
-        $.post("/signup", newUser).then(function (res) {
+        console.log(newUser);
+
+        $.post("/musicianPage", newUser).then(function (res) {
             $("#newUserMessage").text(res);
         })
     });

@@ -1,22 +1,29 @@
-<div class="row">
+  <div class = "container">
   <nav class="blue darken-4" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="logo.png"> </a>
+            <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="/images/logo.png"> </a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Sign In </a></li>
+                <li><a href="/signin">Sign In </a></li>
+                <li><a href="/">Home </a></li>
             </ul>
-
             <ul id="nav-mobile" class="sidenav">
                 <li>
-                    <a href="#!"></a>Sign In
+                    <a href="/signin!"></a>Sign In
                 </li>
             </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+
+<ul id="slide-out" class="sidenav" id="#sidenav">
+    <li><div class="user-view">
+      <a href="/signin"><button class="btn">Signin</button></a>
+      </li>
+  </ul>
+
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
 
     <div class="container">
-        <h1 class="header center white-text"> <img class="logo" src="mainlogo.png"></h1>
+        <h1 class="header center white-text"> <img class="logo" src="images/mainlogo.png"></h1>
         <div class="row center" id="logForm">
             <div class="row">
                 <div class="input-field col s12">
@@ -30,7 +37,9 @@
                     <label for="password">Password</label>
                 </div>
             </div>
-            <input class="btn text-center blue darken-4 " type="submit" value="Sign In" id="userLogin"  >
+           <button class="btn waves-effect waves-light center blue darken-4 " type="submit" name="action">Submit
+                             
+                            </button>
 
             <br><br></div>
 

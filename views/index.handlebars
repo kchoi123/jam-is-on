@@ -1,56 +1,40 @@
-<div class="row">
- <nav class="blue darken-4" role="navigation">
+  <div class = "container">
+  <nav class="blue darken-4" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" class="brand-logo-nav"> <img class="nav-logo" src="/images/logo.png"> </a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="/signin">Sign In </a></li>
+                <li><a href="/">Home </a></li>
             </ul>
-
             <ul id="nav-mobile" class="sidenav">
                 <li>
-                    <a href="#!"></a>Sign In
+                    <a href="/signin!"></a>Sign In
                 </li>
             </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
 
-    <!--
+<ul id="slide-out" class="sidenav" id="#sidenav">
+    <li><div class="user-view">
+      <a href="/signin"><button class="btn">Signin</button></a>
+      </li>
+  </ul>
+
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></nav>
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
 
 
-            <h1 class="header center blue-text"> <img class="logo" src="logo.png">am-is-On</h1>
+            <h1 class="header center"> <img class="logo" src="images/mainlogo.png"></h1>
             <div class="row center">
 
                 <h5 class="header col s12 light">Look for other musicians to Jam with</h5>
             </div>
             <div class="row center">
-                <a href="#" class="btn-large waves-effect waves-light blue">I'm a musician</a>
-                <a href="#" id="band-button" class="btn-large waves-effect waves-light blue">I'm a band</a>
+                <a href="/signup" class="btn-large waves-effect waves-light blue blue darken-4">I'm a musician</a>
             </div>
 
             <br><br>
 
         </div>
     </div>
--->
-    <div class="container">
-        <div id="slideshow">
-            <div class="elemnt" >
-                <h1 class="header center white-text"> <img class="main-logo" src="/images/main-logo.png"> </h1>
-                <div class="row center">
-            
-                    <h5 class="header col s12 light ">Look for other musicians to Jam with</h5>
-                </div>
-                <div class="row center">
-                    <a href="/musician" id="musician-button" class="btn-large waves-effect waves-light blue">I'm a musician</a>
-                    <a href="/bandBox" id="band-button" class="btn-large waves-effect waves-light blue">I'm a band</a>
-                </div>
 
-                <br><br></div>
-   
-
-        </div>
-    </div>
 </div>

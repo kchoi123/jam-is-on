@@ -1,14 +1,10 @@
-var LocalStrategy = require('passport-local').Strategy;
-
-// Load db 
-var db = require('../models');
-
 // needed to secure passwords
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function (passport, musician) {
     // Inside this block, we initialize the passport-local strategy, and the user model, which will be passed as an argument.
     var Musician = musician;
+    var LocalStrategy = require('passport-local').Strategy;
 
     // Then we define our custom strategy with our instance of the LocalStrategy like this:
     passport.use('local-signup', new LocalStrategy(

@@ -1,3 +1,4 @@
+var Sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
     var Musician = sequelize.define("Musician", {
@@ -82,7 +83,9 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        } 
+        }, 
+        createdAt: Sequelize.DATE,
+        updatedAt: Sequelize.DATE
     });
 
     Musician.associate = function(models) {

@@ -62,10 +62,17 @@ html {
     opacity: .8;
 }
 
-#signuph2 {
-    text-align: center;
+.card {
+    width:15em;
+    height: 10em;
+    left:0px;
+    top:20px;
 }
 
-#signupform {
-    width: 80%;
+.sidenav{
+    transition: 0.3s ease-in-out;
+}
+
+#signuph2 {
+    text-align: center;
 }

@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     var Musician = sequelize.define("Musician", {
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -15,21 +15,21 @@ module.exports = function (sequelize, DataTypes) {
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
         },
         userPassword: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1,20]
             }
         },
         location: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -40,11 +40,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         on_lookout: {
             type: DataTypes.BOOLEAN,
-            defaultValue: false
+            defaultValue: true
         }, 
         primary_instrument: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -58,7 +58,7 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         primary_genre: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
@@ -72,14 +72,14 @@ module.exports = function (sequelize, DataTypes) {
         }, 
         availability: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1, 140]
             }
         },
         bio: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -88,14 +88,14 @@ module.exports = function (sequelize, DataTypes) {
         updatedAt: Sequelize.DATE
     });
 
-    Musician.associate = function(models) {
+    // Musician.associate = function(models) {
 
-        Musician.belongsTo(models.Band, {
-          foreignKey: {
-            allowNull: true
-          }
-        });
-      };
+    //     Musician.belongsTo(models.Band, {
+    //       foreignKey: {
+    //         allowNull: true
+    //       }
+    //     });
+    //   };
     
     return Musician;
 };

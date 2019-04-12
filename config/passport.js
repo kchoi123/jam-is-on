@@ -95,23 +95,24 @@ module.exports = function(passport, musician) {
 
     // Serialize function to save the user id to the session
     passport.serializeUser(function(musician, done) {
-        done(null, musician.id);
+        done(null, musician);
     });
 
     // deserialize user 
     passport.deserializeUser(function(id, done) {
+        done(null, musician);
 
-        Musician.findAll({
-            where: {
-                id: id
-            }
-        }).then(function(musician) { // Gets the user
-            if (musician) { // If successful, an instance of the sequelize model is returned
-                done(null, musician);
-            } else {
-                done(musician.errors, null);
-            }
-        });
+        // Musician.findAll({
+        //     where: {
+        //         id: id
+        //     }
+        // }).then(function(musician) { // Gets the user
+        //     if (musician) { // If successful, an instance of the sequelize model is returned
+        //         done(null, musician);
+        //     } else {
+        //         done(musician.errors, null);
+        //     }
+        // });
     });
 
     //LOCAL SIGNIN
@@ -135,20 +136,24 @@ module.exports = function(passport, musician) {
                 return bCrypt.compareSync(password, musicianPass);
             }
 
-            Musician.findOne({
+            Musician.findAll({
                 where: {
                     email: email
                 }
             }).then(function(musician) {
-
+                console.log(musician);
+                console.log("password", musician[0].dataValues.userPassword);
+                console.log("what is in musician " + musician + " / this is email: " + email);
                 if (!musician) {
+                    console.log("No musicain");
                     return done(null, false, {
                         message: 'Email does not exist'
                     });
 
                 }
 
-                if (!isValidPassword(musician.password, password)) {
+                if (!isValidPassword(musician[0].dataValues.userPassword, password)) {
+                    console.log("incorrect password");
                     return done(null, false, {
                         message: 'Incorrect password.'
                     });
@@ -156,7 +161,7 @@ module.exports = function(passport, musician) {
                 }
 
 
-                var musicianInfo = musician.get();
+                var musicianInfo = musician;
                 return done(null, musicianInfo);
 
 

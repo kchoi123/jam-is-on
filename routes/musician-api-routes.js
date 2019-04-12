@@ -28,7 +28,7 @@ var musician = {
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function (app, passport) {
 
 
   // GET route for getting all of the posts
@@ -42,10 +42,12 @@ module.exports = function (app) {
   });
 
   // Post route to verify login
-  app.post("signin", passport.authenticate('local-signin', {
+  app.post("/signin", passport.authenticate('local-signin', {
     successRedirect: 'musicianPage',
-    failureRedirect: '/signup'
-  }));
+    failureRedirect: '/signup',
+    failureFlash: true
+  }
+  ));
 
   // Get route for signup
   app.get("/signup", function (req, res) {
@@ -56,7 +58,8 @@ module.exports = function (app) {
   app.post("/signup", passport.authenticate('local-signup', {
     successRedirect: '/musicianPage',
     failureRedirect: '/signup'
-  }));
+  }
+  ));
 
   // get musician route
   app.get("/musician", function (req, res) {

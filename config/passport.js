@@ -4,6 +4,9 @@ var bCrypt = require('bcrypt-nodejs');
 module.exports = function (passport, musician) {
     // Inside this block, we initialize the passport-local strategy, and the user model, which will be passed as an argument.
     var Musician = musician;
+
+    console.log("This is at passport.js console logging Musician: " + Musician);
+
     var LocalStrategy = require('passport-local').Strategy;
 
     // Then we define our custom strategy with our instance of the LocalStrategy like this:
@@ -16,7 +19,7 @@ module.exports = function (passport, musician) {
             userPassword: 'password',
             location: 'location',
             music_link: 'music_link',
-            on_lookout: 'lookout',
+            on_lookout: 'on_lookout',
             band: 'band',
             primary_instrument: 'primary_instrument',
             secondary_instrument: 'secondary_instrument',
@@ -56,21 +59,19 @@ module.exports = function (passport, musician) {
                     // Below, notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 
                     var data =
                     {
-                        userName: req.body.username,
-                        profile_pic: req.body.profilepic,
+                        userName: req.body.name,
+                        profile_pic: req.body.profile_pic,
                         email: email,
                         userPassword: musicianPassword, //referencing password above
                         location: req.body.location,
-                        music_link: req.body.musiclink,
-                        on_lookout: req.body.lookout,
-                        band: req.body.band,
-                        primary_instrument: req.body.pinst,
-                        secondary_instrument: req.body.sinst,
-                        primary_genre: req.body.pgenre,
-                        secondary_genre: req.body.sgenre,
+                        music_link: req.body.music_link,
+                        on_lookout: req.body.on_lookout,
+                        primary_instrument: req.body.primary_instrument,
+                        secondary_instrument: req.body.secondary_instrument,
+                        primary_genre: req.body.primary_genre,
+                        secondary_genre: req.body.secondary_genre,
                         availibility: req.body.availibility,
                         bio: req.body.bio
-
                     };
 
                     // User.create() is a Sequelize method for adding new entries to the database. Notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 

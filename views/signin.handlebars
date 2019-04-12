@@ -22,28 +22,16 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
 
-    <div class="container">
-        <h1 class="header center white-text"> <img class="logo" src="images/mainlogo.png"></h1>
-        <div class="row center" id="logForm">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input class="text form-control " name="email" type="text" id="userEmail" >
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input name="password" type="password" id="userPw">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-           <button class="btn waves-effect waves-light center blue darken-4 " type="submit" name="action">Submit
-                             
-                            </button>
+ <h1 class="header center white-text"> <img class="logo" src="images/mainlogo.png"></h1>
 
-            <br><br></div>
+ <form id="signin" name="signin" method="post" action="/signin">
+       <input class="text form-control mt-3" name="email" type="email" placeholder="Enter email" required/>
 
-    </div>
-</div>
+            
+                <!-- <label for="password">Password</label> -->
+         <input name="password" type="password" class="form-control mt-3" id="InputPassword1" placeholder="Password" minlength="6" required/>
 
+          <input class="btn mt-3" type="submit" value="Sign In" id="sign-in-button"/>
+ </form>
 
+    

@@ -1,7 +1,7 @@
 // needed to secure passwords
 var bCrypt = require('bcrypt-nodejs');
 
-module.exports = function (passport, musician) {
+module.exports = function(passport, musician) {
     // Inside this block, we initialize the passport-local strategy, and the user model, which will be passed as an argument.
     var Musician = musician;
 
@@ -36,14 +36,14 @@ module.exports = function (passport, musician) {
         // },
 
         // Callback function to handle storing user's details
-        function (req, email, password, done) {
+        function(req, email, password, done) {
             // Testing
             console.log(req.body);
             console.log(email);
             console.log(password);
 
             // First, we add our hashed password generating function inside the callback function.
-            var generateHash = function (password) {
+            var generateHash = function(password) {
 
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 
@@ -54,7 +54,7 @@ module.exports = function (passport, musician) {
                 where: {
                     email: email
                 }
-            }).then(function (musician) {
+            }).then(function(musician) {
                 if (musician) {
                     return done(null, false, {
                         message: 'That email is already taken'
@@ -62,9 +62,8 @@ module.exports = function (passport, musician) {
                 } else {
                     var musicianPassword = generateHash(password);
                     // Below, notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 
-                    var data =
-                    {
-                        userName: req.body.name,
+                    var data = {
+                        userName: req.body.userName,
                         profile_pic: req.body.profile_pic,
                         email: email,
                         userPassword: musicianPassword, //referencing password above
@@ -80,7 +79,7 @@ module.exports = function (passport, musician) {
                     };
 
                     // User.create() is a Sequelize method for adding new entries to the database. Notice that the values in the data object are gotten from the req.body object which contains the input from our signup form. 
-                    Musician.create(data).then(function (newMusician, created) {
+                    Musician.create(data).then(function(newMusician, created) {
                         if (!newMusician) {
                             return done(null, false);
                         }
@@ -95,18 +94,18 @@ module.exports = function (passport, musician) {
     ));
 
     // Serialize function to save the user id to the session
-    passport.serializeUser(function (musician, done) {
+    passport.serializeUser(function(musician, done) {
         done(null, musician.id);
     });
 
     // deserialize user 
-    passport.deserializeUser(function (id, done) {
+    passport.deserializeUser(function(id, done) {
 
         Musician.findAll({
             where: {
                 id: id
             }
-        }).then(function (musician) { // Gets the user
+        }).then(function(musician) { // Gets the user
             if (musician) { // If successful, an instance of the sequelize model is returned
                 done(null, musician);
             } else {
@@ -128,11 +127,11 @@ module.exports = function (passport, musician) {
 
         },
 
-        function (req, email, password, done) {
+        function(req, email, password, done) {
             var Musician = musician;
 
             // The isValidPassword function compares the password entered with the bCrypt comparison method since we stored our password with bcrypt. If details are correct, user will sign in
-            var isValidPassword = function (musicianPass, password) {
+            var isValidPassword = function(musicianPass, password) {
                 return bCrypt.compareSync(password, musicianPass);
             }
 
@@ -140,7 +139,7 @@ module.exports = function (passport, musician) {
                 where: {
                     email: email
                 }
-            }).then(function (musician) {
+            }).then(function(musician) {
 
                 if (!musician) {
                     return done(null, false, {
@@ -161,7 +160,7 @@ module.exports = function (passport, musician) {
                 return done(null, musicianInfo);
 
 
-            }).catch(function (err) {
+            }).catch(function(err) {
 
                 console.log("Error:", err);
 

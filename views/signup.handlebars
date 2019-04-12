@@ -24,29 +24,29 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
 
-            <div class="container" id="signupform">
-                <div class="row" id="logForm">
-                    <h2 id="signuph2"> Fill in the information to join. </h2>
-                    <form class="col s12" id="signup" name="signup" action="/signup" method="post">
+            {{!-- <div class="container" id="signupform">
+                <div class="row" id="logForm"> --}}
+                    {{!-- <h2 id="signuph2"> Fill in the information to join. </h2> --}}
+                    <form class="col s12" id="signup" name="signup" action="/signup" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="name" name="userName" type="text">
                                 <label for="name">Name</label>
                             </div>
                         </div>
-                        <div class="row">
+                        {{!-- <div class="row">
                             <div class="input-field col s12">
                                 <input id="profile_pic" name="profile_pic" type="text">
                                 <label for="profile_pic">Profile Picture URL</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="email" name="email" type="email">
                                 <label for="email">Email</label>
                             </div>
                         </div>
-                        <div class="row">
+                        {{!-- <div class="row">
                             <div class="input-field col s12">
                                 <input id="location" name="location" type="text">
                                 <label for="location">Location</label>
@@ -115,7 +115,7 @@
                             </div>
 
                             <div class="input-field col s6">
-                                <select id="seconday_genre" name="secondary_genre">
+                                <select id="secondary_genre" name="secondary_genre">
                                     <option value="" disabled selected>Choose your Seconday Genre (optional)
                                     </option>
                                     <option value="blues">Blues</option>
@@ -147,7 +147,7 @@
                                         <input id="bio" name="bio" type="bio">
                                         <label for="bio">Bio</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="InputPassword1" name="password" type="password">
@@ -169,9 +169,22 @@
                                         </button>
                                     </div>
                                 </div>
-
+{{!-- 
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
-                </div>
-            </div>
+                {{!-- </div>
+            </div> --}}
+
+            <form id="signup" name="signup" method="post" action="/signup">
+
+                <!-- <label for="email">Email Address</label> -->
+                <input class="text form-control mt-3" name="email" type="email" placeholder="Enter email" required/>
+
+                
+                <!-- <label for="password">Password</label> -->
+                <input name="password" type="password" class="form-control mt-3" id="InputPassword1" placeholder="Password" minlength="6" required/>
+                      
+                <input class="btn mt-3" type="submit" value="Sign Up" id="sign-up-button"/>
+
+            </form>

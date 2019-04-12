@@ -54,7 +54,8 @@ html {
     text-align: center;
 }
 
-#signup {
+#signup,
+#signin {
     background-color: white;
     padding: 20px;
     border: 5px solid;

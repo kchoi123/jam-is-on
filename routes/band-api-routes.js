@@ -48,10 +48,10 @@ module.exports = function (app) {
   });
 
   // Post route to verify login
-  app.post("signin", passport.authenticate('local-signin', {
-    successRedirect: 'bandPage',
-    failureRedirect: '/signup'
-  }));
+  // app.post("signin", passport.authenticate('local-signin', {
+  //   successRedirect: 'bandPage',
+  //   failureRedirect: '/signup'
+  // }));
 
 
   // Get route for signup
@@ -60,10 +60,10 @@ module.exports = function (app) {
   });
 
   // Post route from signup to db
-  app.post("/signup", passport.authenticate('local-signup', {
-    successRedirect: '/bandPage',
-    failureRedirect: '/signup'
-  }));
+  // app.post("/signup", passport.authenticate('local-signup', {
+  //   successRedirect: '/bandPage',
+  //   failureRedirect: '/signup'
+  // }));
 
   //logout
   app.get('/logout', authController.logout);

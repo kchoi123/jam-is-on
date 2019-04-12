@@ -13,22 +13,27 @@ module.exports = function (passport, musician) {
     passport.use('local-signup', new LocalStrategy(
 
         {
-            userName: 'userName',
-            profile_pic: 'profile_pic',
-            email: 'email',
-            userPassword: 'password',
-            location: 'location',
-            music_link: 'music_link',
-            on_lookout: 'on_lookout',
-            band: 'band',
-            primary_instrument: 'primary_instrument',
-            secondary_instrument: 'secondary_instrument',
-            primary_genre: 'primary_genre',
-            secondary_genre: 'secondary_genre',
-            availibility: "availibility",
-            bio: "bio",
+            usernameField: 'email',
+            passwordField: 'password',
             passReqToCallback: true // allows us to pass the entire request to the callback, which is particularly useful for signing up.
         },
+        // {
+        //     userName: 'userName',
+        //     profile_pic: 'profile_pic',
+        //     usernameField: 'email',
+        //     passwordField: 'password',
+        //     location: 'location',
+        //     music_link: 'music_link',
+        //     on_lookout: 'on_lookout',
+        //     band: 'band',
+        //     primary_instrument: 'primary_instrument',
+        //     secondary_instrument: 'secondary_instrument',
+        //     primary_genre: 'primary_genre',
+        //     secondary_genre: 'secondary_genre',
+        //     availibility: "availibility",
+        //     bio: "bio",
+        //     passReqToCallback: true // allows us to pass the entire request to the callback, which is particularly useful for signing up.
+        // },
 
         // Callback function to handle storing user's details
         function (req, email, password, done) {
@@ -70,7 +75,7 @@ module.exports = function (passport, musician) {
                         secondary_instrument: req.body.secondary_instrument,
                         primary_genre: req.body.primary_genre,
                         secondary_genre: req.body.secondary_genre,
-                        availibility: req.body.availibility,
+                        availability: req.body.availability,
                         bio: req.body.bio
                     };
 
@@ -97,9 +102,13 @@ module.exports = function (passport, musician) {
     // deserialize user 
     passport.deserializeUser(function (id, done) {
 
-        Musician.findById(id).then(function (musician) { // Gets the user
+        Musician.findAll({
+            where: {
+                id: id
+            }
+        }).then(function (musician) { // Gets the user
             if (musician) { // If successful, an instance of the sequelize model is returned
-                done(null, musician.get());
+                done(null, musician);
             } else {
                 done(musician.errors, null);
             }

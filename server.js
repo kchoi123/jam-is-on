@@ -26,12 +26,7 @@ app.use(session({
   key: 'user_sid',
   secret: 'goN6DJJC6E287cC77kkdYuNuAyWnz7Q3iZj8',
   resave: true,
-  saveUninitialized: false,
-  cookie:
-  {
-    expires: 600000,
-    httpOnly: false
-  }
+  saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -58,9 +53,10 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 // load bandapiroutes not being used yet
-require("./routes/band-api-routes.js")(app, passport);
+// require("./routes/band-api-routes.js")(app, passport);
 // load musicianapiroutes
-require("./routes/musician-api-routes.js")(app, passport);
+// require("./routes/musician-api-routes.js")(app, passport);
+require('./routes/musician-api-routes.js')(app,passport);
 // load passport strategies
 require('./config/passport.js')(passport, db.Musician);
 

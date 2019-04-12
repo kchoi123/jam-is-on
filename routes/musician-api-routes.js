@@ -1,12 +1,5 @@
-var db = require("../models");
 
 var matches = require("./match.js");
-
-var Sequelize = require("sequelize");
-
-var Op = Sequelize.Op;
-
-var passport = require("passport");
 
 var authController = require("../controllers/authcontroller.js");
 

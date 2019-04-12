@@ -1,16 +1,13 @@
-$(function () {
+$(function() {
     //dropdown for sign up form
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-    });
 
-    $(document).ready(function () {
+
+    $(document).ready(function() {
         $('select').formSelect();
     });
 
     // New user for MUSICIAN
-    $("#newUser").on("submit", function (event) {
+    $("#newUser").on("submit", function(event) {
         event.preventDefault();
 
         var newUser = {
@@ -31,20 +28,20 @@ $(function () {
 
         console.log(newUser);
 
-        $.post("/musicianPage", newUser).then(function (res) {
+        $.post("/musicianPage", newUser).then(function(res) {
             $("#newUserMessage").text(res);
         })
     });
 
     //sidenav to work
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems, options);
     });
 
     $('.sidenav').sidenav();
 
-    $("#createAccount").on("click", function (event) {
+    $("#createAccount").on("click", function(event) {
         event.preventDefault();
 
         var newUser = {
@@ -61,8 +58,31 @@ $(function () {
             secondary_genre: $("#username").val().trim()
         }
 
-        $.post("/signup", newUser).then(function (res) {
+        $.post("/signup", newUser).then(function(res) {
+            var bandBox = $("#band-cards");
 
+            for (var i = 0; i < res.length; i++) {
+                var genres = res[i].primary_genre;
+                var instruments = res[i].primary_genre;
+                var bandString = "";
+
+
+                if (res[i].secondary_genre) { genres += ", " + res[i].secondary_genre }
+                if (res[i].secondary_instrument) { instruments += ", " + res[i].secondary_instrument }
+
+                bandString += '<li class="collection-item avatar">' +
+                    '<img src= ' + res[i].profile_pic + ' alt="" class="thumbnail">' +
+                    '<span class="title band-name">' + res[i].name + '</span>' +
+                    '<p class="genres">Genres: ' + genres + '</p>' +
+                    '<p class="instruments">Instruments: ' + instruments + '</p>' +
+                    '<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a></li>'
+
+                bandBox.append(bandString);
+
+                res.render()
+
+
+            }
         });
     });
 

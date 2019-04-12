@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var Musician = sequelize.define("Musician", {
         userName: {
             type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 140]
             }
-        }, 
+        },
         music_link: {
             type: DataTypes.TEXT,
             allowNull: true
@@ -41,35 +41,35 @@ module.exports = function (sequelize, DataTypes) {
         on_lookout: {
             type: DataTypes.BOOLEAN,
             defaultValue: true
-        }, 
+        },
         primary_instrument: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 140]
             }
-        }, 
+        },
         secondary_instrument: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 140]
             }
-        }, 
+        },
         primary_genre: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 140]
             }
-        }, 
+        },
         secondary_genre: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 140]
             }
-        }, 
+        },
         availability: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -83,9 +83,10 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE
+        updatedAt: Sequelize.DATE,
+
     });
 
     // Musician.associate = function(models) {
@@ -96,6 +97,6 @@ module.exports = function (sequelize, DataTypes) {
     //       }
     //     });
     //   };
-    
+
     return Musician;
 };

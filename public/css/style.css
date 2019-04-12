@@ -54,7 +54,7 @@ html {
     text-align: center;
 }
 
-#logForm {
+#signup {
     background-color: white;
     padding: 20px;
     border: 5px solid;
@@ -63,13 +63,13 @@ html {
 }
 
 .card {
-    width:15em;
+    width: 15em;
     height: 10em;
-    left:0px;
-    top:20px;
+    left: 0px;
+    top: 20px;
 }
 
-.sidenav{
+.sidenav {
     transition: 0.3s ease-in-out;
 }
 

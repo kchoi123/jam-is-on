@@ -4,6 +4,9 @@ $(function() {
 
     $(document).ready(function() {
         $('select').formSelect();
+
+        // Initialize profile modal in musicianPage.handlebars.
+        $('.modal').modal();
     });
 
 

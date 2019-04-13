@@ -23,12 +23,6 @@ var musician = {
 // =============================================================
 module.exports = function (app, passport) {
 
-
-  // GET route for getting all of the posts
-  app.get("/", function (req, res) {
-    res.render("index");
-  });
-
   //Get route for signin
   app.get("/signin", function (req, res) {
     res.render("signin");
@@ -59,6 +53,11 @@ module.exports = function (app, passport) {
 
   //logout
   app.get('/logout', authController.logout);
+
+  // GET route for getting all of the posts
+  app.get("*", function (req, res) {
+    res.render("index");
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

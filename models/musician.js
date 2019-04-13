@@ -89,14 +89,5 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
-    // Musician.associate = function(models) {
-
-    //     Musician.belongsTo(models.Band, {
-    //       foreignKey: {
-    //         allowNull: true
-    //       }
-    //     });
-    //   };
-
     return Musician;
 };

@@ -54,18 +54,6 @@ module.exports = function (app, passport) {
   }
   ));
 
-  // get musician route
-  app.get("/musician", function (req, res) {
-    matches.exact(musician);
-    matches.close(musician);
-    res.render("musicianPage");
-  });
-
-  // Get route for returning posts for musician
-  app.get("/api/posts/musician/:musician", function (req, res) {
-    matches.exact(musician);
-  });
-
   //get musicians
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 

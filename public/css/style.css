@@ -85,4 +85,10 @@ form {
 
 #signuptitle {
     text-align: center;
+    color: black;
+}
+
+#haveanaccount {
+    text-align: center;
+    margin: 0 auto;
 }

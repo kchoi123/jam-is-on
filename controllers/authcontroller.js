@@ -15,6 +15,10 @@ exports.musicianPage = function (req, res) {
     res.render('musicianPage');
 }
 
+// Controller route for godView
+exports.godView = function (req, res) {
+    res.render('godView');
+}
 
 // Controller route for logout
 exports.logout = function (req, res) {

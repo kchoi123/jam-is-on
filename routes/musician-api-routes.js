@@ -22,8 +22,8 @@ var musician = {
 // Routes
 module.exports = function (app, passport) {
 
-// ==========================MUSICIAN - START====================================
-// ==========================MUSICIAN - START====================================
+  // ==========================MUSICIAN - START====================================
+  // ==========================MUSICIAN - START====================================
 
 
   //Get route for signin
@@ -51,15 +51,15 @@ module.exports = function (app, passport) {
   }
   ));
 
-  //get musicians
+  //get musicianPage
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
-// ==========================MUSICIAN - END====================================
-// ==========================MUSICIAN - END====================================
+  // ==========================MUSICIAN - END====================================
+  // ==========================MUSICIAN - END====================================
 
 
-// ==========================ADMIN - START====================================
-// ==========================ADMIN - START====================================
+  // ==========================ADMIN - START====================================
+  // ==========================ADMIN - START====================================
 
 
   //Get route for admin
@@ -69,14 +69,17 @@ module.exports = function (app, passport) {
 
   //admin auth
   app.post("/admin", passport.authenticate('local-signin', {
-    successRedirect: 'musicianPage',
-    failureRedirect: '/signup',
+    successRedirect: '/godView',
+    failureRedirect: '/admin',
     failureFlash: true
   }
   ));
 
-// ==========================ADMIN - END====================================
-// ==========================ADMIN - END====================================
+  //get godView
+  app.get("/godView", isLoggedIn, authController.godView);
+
+  // ==========================ADMIN - END====================================
+  // ==========================ADMIN - END====================================
 
   //logout
   app.get("/logout", authController.logout);

@@ -54,6 +54,12 @@ module.exports = function (app, passport) {
   //get musicianPage
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
+  app.get("findmyband", function(req, res) {
+
+    res.json(matches.close(musician));
+
+  })
+
   // ==========================MUSICIAN - END====================================
   // ==========================MUSICIAN - END====================================
 

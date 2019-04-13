@@ -29,6 +29,7 @@ var matches = {
                 console.log("Band name: " + data[i].name);
 
             }
+            return data;
         })
     },
 
@@ -61,6 +62,7 @@ var matches = {
                 console.log("Band name: " + data[i].name);
 
             }
+            return data;
         })
     }
 }

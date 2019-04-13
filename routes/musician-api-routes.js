@@ -52,13 +52,27 @@ module.exports = function (app, passport) {
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
   //logout
-  app.get('/logout', authController.logout);
+  app.get("/logout", authController.logout);
 
-  // GET route for getting all of the posts
+  //Get route for admin
+  app.get("/admin", function (req, res) {
+    res.render("admin");
+  });
+
+  //admin
+  app.post("/admin", passport.authenticate('local-signin', {
+    successRedirect: 'musicianPage',
+    failureRedirect: '/signup',
+    failureFlash: true
+  }
+  ));
+
+  //GET route for any unknown destination
   app.get("*", function (req, res) {
     res.render("index");
   });
 
+  //function for auth
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
       return next();

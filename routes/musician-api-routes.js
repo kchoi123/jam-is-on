@@ -20,8 +20,11 @@ var musician = {
 }
 
 // Routes
-// =============================================================
 module.exports = function (app, passport) {
+
+// ==========================MUSICIAN - START====================================
+// ==========================MUSICIAN - START====================================
+
 
   //Get route for signin
   app.get("/signin", function (req, res) {
@@ -51,21 +54,32 @@ module.exports = function (app, passport) {
   //get musicians
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
-  //logout
-  app.get("/logout", authController.logout);
+// ==========================MUSICIAN - END====================================
+// ==========================MUSICIAN - END====================================
+
+
+// ==========================ADMIN - START====================================
+// ==========================ADMIN - START====================================
+
 
   //Get route for admin
   app.get("/admin", function (req, res) {
     res.render("admin");
   });
 
-  //admin
+  //admin auth
   app.post("/admin", passport.authenticate('local-signin', {
     successRedirect: 'musicianPage',
     failureRedirect: '/signup',
     failureFlash: true
   }
   ));
+
+// ==========================ADMIN - END====================================
+// ==========================ADMIN - END====================================
+
+  //logout
+  app.get("/logout", authController.logout);
 
   //GET route for any unknown destination
   app.get("*", function (req, res) {

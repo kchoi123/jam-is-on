@@ -60,35 +60,8 @@ module.exports = function (app, passport) {
 
 
 
-
   // ==========================MUSICIAN - END====================================
   // ==========================MUSICIAN - END====================================
-
-
-  // ==========================ADMIN - START====================================
-  // ==========================ADMIN - START====================================
-
-
-  //Get route for admin
-  app.get("/admin", function (req, res) {
-    res.render("admin");
-  });
-
-  //admin auth
-  app.post("/admin", passport.authenticate('local-signin', {
-    successRedirect: '/godView',
-    failureRedirect: '/admin',
-    failureFlash: true
-  }
-  ));
-
-  //get godView
-  app.get("/godView", isLoggedIn, authController.godView);
-
-  // ==========================ADMIN - END====================================
-  // ==========================ADMIN - END====================================
-
-
 
 
   //function for auth

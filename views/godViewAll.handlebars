@@ -1,0 +1,19 @@
+<h2>Musicians already in a band!</h2>
+
+<ul>
+  {{#each musician}}
+    {{#unless on_lookout}}
+      {{> musicians/musicians-block on_lookout=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Musician on the lookout for a band!</h2>
+
+<ul>
+  {{#each musician}}
+    {{#if on_lookout}}
+      {{> musicians/musicians-block on_lookout=false}}
+    {{/if}}
+  {{/each}}
+</ul>

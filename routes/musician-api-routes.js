@@ -37,11 +37,14 @@ module.exports = function (app, passport) {
   }
   ));
 
-  //get musicianPage
-  app.get("/musicianPage", isLoggedIn, authController.musicianPage);
+  // Post route to verify login
+  app.post("/signin", passport.authenticate('local-signin', {
+    successRedirect: '/musicianPage',
+    failureRedirect: '/signin'
+  }
+  ));
 
-
-  app.get("/findmybands", function(req, res) {
+  app.get("/findmybands", function (req, res) {
 
     // console.log(matches);
     // matches.close(musician);
@@ -49,15 +52,12 @@ module.exports = function (app, passport) {
 
   })
 
+  //get musicianPage
+  app.get("/musicianPage", isLoggedIn, authController.musicianPage);
+
   //logout
   app.get("/logout", authController.logout);
 
-  // Post route to verify login
-  app.post("/signin", passport.authenticate('local-signin', {
-    successRedirect: '/musicianPage',
-    failureRedirect: '/signin'
-  }
-  ));
 
 
 

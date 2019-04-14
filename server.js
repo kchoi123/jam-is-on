@@ -55,9 +55,8 @@ app.use(passport.session()); // persistent login sessions
 // Landing page
 var api = require("./routes/api.js");
 app.use(api);
-// MusicianPage
-// var musicianPage = require("./routes/musicianPage.js");
-// app.use(musicianPage);
+// load musicianapiroutes
+require('./routes/adminRoutes.js')(app,passport);
 // load musicianapiroutes
 require('./routes/musician-api-routes.js')(app,passport);
 // load passport strategies

@@ -11,8 +11,6 @@ h5 {
     color: white !important;
 }
 
-#logo-text {}
-
 .logo {
     vertical-align: baseline;
     height: 40%;
@@ -106,4 +104,12 @@ form {
     color: aquamarine;
     display: block;
     margin: auto;
+}
+
+.nav-wrapper {
+    position: absolute;
+}
+
+.container {
+    max-width: inherit;
 }

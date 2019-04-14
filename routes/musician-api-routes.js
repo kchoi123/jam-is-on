@@ -1,5 +1,11 @@
 
-// var matches = require("./match.js");
+var Sequelize = require("sequelize");
+
+var db = require("../models");
+
+var Op = Sequelize.Op;
+
+var matches = require("./match.js");
 
 var authController = require("../controllers/authcontroller.js");
 
@@ -47,8 +53,40 @@ module.exports = function (app, passport) {
   app.get("/findmybands", function (req, res) {
 
     // console.log(matches);
-    // matches.close(musician);
-    res.send(matches.close(musician));
+    // console.log(req.session.passport);
+    // console.log((matches.findMusician(req.session.passport.user)));
+    // res.send(matches.close(musician));
+
+    db.Musician.findAll({
+      where: {
+          id: req.session.passport.user
+      }
+    }).then(function(data) {
+      db.Band.findAll({
+        where: {
+            [Op.or]: [
+
+            {primary_genre: data[0].primary_genre},
+            {primary_genre: data[0].secondary_genre},
+            {primary_instrument: data[0].primary_instrument},
+            {primary_instrument: data[0].secondary_instrument}
+
+            ]
+        },
+
+        limit: 10
+
+        }).then(function(data) {
+            // console.log("\n***CLOSE MATCHES***\n\n");
+
+            // for (var i=0; i<data.length; i++) {
+            //     console.log("Band name: " + data[i].name);
+
+            // }
+
+            res.json(data);
+        })
+    })
 
   })
 

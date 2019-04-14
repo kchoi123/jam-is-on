@@ -12,7 +12,7 @@ module.exports = function (app, passport) {
     });
 
     //admin auth
-    app.post("/admin", passport.authenticate('local-signin', {
+    app.post("/adminSignin", passport.authenticate('local-signin', {
         successRedirect: '/godView',
         failureRedirect: '/adminSignin',
         failureFlash: true
@@ -25,4 +25,12 @@ module.exports = function (app, passport) {
 
     // ==========================ADMIN - END====================================
     // ==========================ADMIN - END====================================
+
+
+    //function for auth
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+      return next();
+    res.redirect('/signin');
+  };
 };

@@ -61,6 +61,7 @@ html {
     border: 5px solid;
     border-color: white;
     opacity: .8;
+    width: 65%;
 }
 
 .card {
@@ -96,4 +97,13 @@ form {
 #donthaveaccount {
     text-align: center;
     margin: 0 auto;
+}
+
+#sign-up-button {
+    background-color: blue;
+    height: 50px;
+    width: 35%;
+    color: aquamarine;
+    display: block;
+    margin: auto;
 }

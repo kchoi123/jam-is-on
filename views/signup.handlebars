@@ -39,92 +39,130 @@
             <br>
 
 
+              <div class= "row">
                 <!-- name-->
-                
-                <input class="text form-control mt-3" name="userName" type="text" placeholder="Enter your name" required/>
+                  <div class= 'col m6'>
+                    <input class="text form-control mt-3" name="userName" type="text" placeholder="Enter your name" required/>
+                  </div>
+                <!-- location-->
+                  <div class= 'col m6'>
+                    <input class="location" name="location" type="text" placeholder="Enter Location" required>
+                  </div>
+              </div>  
 
-                <!--profile-->
-                
-                <input class="text form-control mt-3" name="profile_pic" type="text" placeholder="Profile pic link" required/>
+              <div class= "row">
+                  <!-- email-->
+                  <div class= 'col m6'>
+                    <input class="text form-control mt-3" name="email" type="email" placeholder="Enter email" required/>
+                  </div>
+                  <!-- password-->
+                  <div class= 'col m6'>
+                    <input name="password" type="password" class="form-control mt-3" id="InputPassword1" placeholder="Password" minlength="6" required/>
+                  </div>
+              </div>  
 
-                <!-- <label for="email">Email Address</label> -->
-                <input class="text form-control mt-3" name="email" type="email" placeholder="Enter email" required/>
+              <div class= "row">
+                  <!-- profile pic-->
+                  <div class= 'col m6'>
+                    <input class="text form-control mt-3" name="profile_pic" type="text" placeholder="Profile pic link" required/>
+                  </div>
+                  <!-- music link-->
+                  <div class= 'col m6'>
+                    <input class="music_link" name="music_link" type="text" placeholder="Enter music link" required>
+                  </div>
+              </div>  
 
-            
-                <!-- <label for="password">Password</label> -->
-                <input name="password" type="password" class="form-control mt-3" id="InputPassword1" placeholder="Password" minlength="6" required/>
-
-                <input class="location" name="location" type="text" placeholder="Enter Location" required>
-
-                <input class="music_link" name="music_link" type="text" placeholder="Enter music link" required>
-
-                <select id="on_lookout">
+                <div class= "row">
+                  <!-- on looukout-->
+                  <div class= 'col m6'>
+                      <select id="on_lookout">
                         <option value="" disabled selected> Looking for a band?</option>
-                                <option value="0"> Yes </option>
-                                <option value="1"> No </option>
-                         </select>
-            
-                <select id="primary_instrument" name="primary_instrument" required  >
-                                    <option value="" disabled selected>Choose your Primary Instrument</option>
-                                    <option value="guitar">Guitar</option>
-                                    <option value="piano">Keyboard</option>
-                                    <option value="drums">Percussion</option>
-                                    <option value="bass">Bass Guitar</option>
-                                    <option value="vocals">Vocal</option>
-                                    <option value="other">Other</option>
-                                </select>
+                        <option value="0"> Yes </option>
+                        <option value="1"> No </option>
+                      </select>
+                  </div>
+                  <!-- availability -->
+                  <div class= 'col m6'>
+                    <select id="availability" name="availability">
+                        <option value="" disabled selected>Availablity</option>
+                        <option value="weekends"> Weekends </option>
+                        <option value="weekdays"> Weekdays </option>
+                    </select>
+                  </div>
+                </div>  
 
-               <select id="secondary_instrument" name="secondary_instrument">
-                                    <option value="" disabled selected>Choose your Secondary Instrument(optional)</option>
-                                    <option value="guitar">Guitar</option>
-                                    <option value="piano">Keyboard</option>
-                                    <option value="drums">Percussion</option>
-                                    <option value="bass">Bass Guitar</option>
-                                    <option value="vocals">Vocal</option>
-                                    <option value="other">Other</option>
-                                </select>
+                <div class= "row">
+                  <!-- instrument 1-->
+                  <div class= 'col m6'>
+                    <select id="primary_instrument" name="primary_instrument" required  >
+                        <option value="" disabled selected>Choose your Primary Instrument</option>
+                        <option value="guitar">Guitar</option>
+                        <option value="piano">Keyboard</option>
+                        <option value="drums">Percussion</option>
+                        <option value="bass">Bass Guitar</option>
+                        <option value="vocals">Vocal</option>
+                        <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <!-- instrument 2 -->
+                  <div class= 'col m6'>
+                    <select id="secondary_instrument" name="secondary_instrument">
+                        <option value="" disabled selected>Choose your Secondary Instrument (optional)</option>
+                        <option value="guitar">Guitar</option>
+                        <option value="piano">Keyboard</option>
+                        <option value="drums">Percussion</option>
+                        <option value="bass">Bass Guitar</option>
+                        <option value="vocals">Vocal</option>
+                        <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>  
 
-                <select id="primary_genre" name="primary_genre">
-                                    <option value="" disabled selected>Choose your Primary Genre 
-                                    </option>
-                                    <option value="blues">Blues</option>
-                                    <option value="jazz">Jazz</option>
-                                    <option value="hip-hop">Hip-Hop</option>
-                                    <option value="folk">Folk</option>
-                                    <option value="funk">Funk</option>
-                                    <option value="indie">Indie</option>
-                                    <option value="punk">Punk</option>
-                                    <option value="metal">Metal</option>
-                                    <option value="r&b">R&B</option>
-                                    <option value="rock">Rock</option>
-                                    <option value="pop">Pop</option>
-                                </select>
+                <div class= "row">
+                  <!-- genre 1-->
+                  <div class= 'col m6'>
+                   <select id="primary_genre" name="primary_genre">
+                        <option value="" disabled selected>Choose your Primary Genre </option>
+                        <option value="blues">Blues</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="hip-hop">Hip-Hop</option>
+                        <option value="folk">Folk</option>
+                        <option value="funk">Funk</option>
+                        <option value="indie">Indie</option>
+                        <option value="punk">Punk</option>
+                        <option value="metal">Metal</option>
+                        <option value="r&b">R&B</option>
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                    </select>
+                  </div>
+                  <!-- genre 2 -->
+                  <div class= 'col m6'>
+                    <select id="secondary_genre" name="secondary_genre">
+                        <option value="" disabled selected>Choose your Seconday Genre (optional)
+                        </option>
+                        <option value="blues">Blues</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="hip-hop">Hip-Hop</option>
+                        <option value="folk">Folk</option>
+                        <option value="funk">Funk</option>
+                        <option value="indie">Indie</option>
+                        <option value="punk">Punk</option>
+                        <option value="metal">Metal</option>
+                        <option value="r&b">R&B</option>
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                    </select>
+                  </div>
+                </div>  
 
-                <select id="secondary_genre" name="secondary_genre">
-                                    <option value="" disabled selected>Choose your Seconday Genre (optional)
-                                    </option>
-                                    <option value="blues">Blues</option>
-                                    <option value="jazz">Jazz</option>
-                                    <option value="hip-hop">Hip-Hop</option>
-                                    <option value="folk">Folk</option>
-                                    <option value="funk">Funk</option>
-                                    <option value="indie">Indie</option>
-                                    <option value="punk">Punk</option>
-                                    <option value="metal">Metal</option>
-                                    <option value="r&b">R&B</option>
-                                    <option value="rock">Rock</option>
-                                    <option value="pop">Pop</option>
-                                </select>
-
-                <select id="availability" name="availability">
-                                        <option value="" disabled selected> Look for availablity</option>
-                                        <option value="weekends"> Weekends </option>
-                                        <option value="weekdays"> Weekdays </option>
-                                    </select>
-
+                <!-- bio -->
                 <input class="bio" name="bio" type="text" placeholder="Tell us about yourself." required>
 
-                      
+<br>
+<br>
+<br>
+                <!-- sign up -->                      
                 <input class="btn mt-3" type="submit" value="Sign Up" id="sign-up-button"/>
 
             </form>

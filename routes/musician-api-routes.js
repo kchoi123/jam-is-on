@@ -40,6 +40,15 @@ module.exports = function (app, passport) {
   //get musicianPage
   app.get("/musicianPage", isLoggedIn, authController.musicianPage);
 
+
+  app.get("/findmybands", function(req, res) {
+
+    // console.log(matches);
+    // matches.close(musician);
+    res.send(matches.close(musician));
+
+  })
+
   //logout
   app.get("/logout", authController.logout);
 
@@ -49,6 +58,7 @@ module.exports = function (app, passport) {
     failureRedirect: '/signin'
   }
   ));
+
 
 
   // ==========================MUSICIAN - END====================================

@@ -12,7 +12,9 @@ h5 {
 }
 
 .logo {
-    vertical-align: baseline;
+    vertical-a
+  
+  gn: baseline;
     height: 40%;
     width: 40%;
     padding: 10px;
@@ -206,4 +208,8 @@ ul {
 
 li {
     border: none !important;
+}
+
+#bands-box {
+    width: 1000px;
 }

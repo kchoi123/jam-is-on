@@ -37,6 +37,12 @@ body {
     z-index: -1;
 }
 
+.band-image {
+    width: 100px;
+    display: block;
+    margin: auto;
+}
+
 html {
     background: url("../images/Band.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -112,4 +118,13 @@ form {
 
 .container {
     max-width: inherit;
+}
+
+.collection .collection-item.avatar {
+    padding-left: 0px !important;
+}
+
+.title {
+    font-size: 24px;
+    color: aquamarine;
 }

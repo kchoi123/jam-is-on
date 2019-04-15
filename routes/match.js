@@ -6,7 +6,16 @@ var db = require("../models");
 var Op = Sequelize.Op;
 
 var matches = {
-    
+    findMusician: function(thisId) {
+        db.Musician.findOne({
+            where: {
+                id: thisId
+            }
+        }).then(function(data) {
+            return data;
+        })
+    },
+
     close: function(musician) {
         db.Band.findAll({
             where: {

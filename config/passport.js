@@ -13,17 +13,7 @@ module.exports = function (passport, musician) {
 
     // deserialize user 
     passport.deserializeUser(function (id, done) {
-        Musician.findAll({
-            where: {
-                id: id
-            }
-        }).then(function (user) {
-              if (user) {
-                done(null, user);
-            } else {
-                done(user.errors, null);
-            }
-        });
+        done(null, id);
     });
 
     // Then we define our custom strategy with our instance of the LocalStrategy like this:

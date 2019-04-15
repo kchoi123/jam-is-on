@@ -67,9 +67,11 @@ module.exports = function (app, passport) {
             {primary_instrument: data[0].primary_instrument},
             {primary_instrument: data[0].secondary_instrument}
 
-            ]
+            ],
+            on_lookout: true,
         },
 
+        
         limit: 10
 
         }).then(function(data) {

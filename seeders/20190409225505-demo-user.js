@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Bands', [{
 
     name: 'The Skull Cats',
-    profile_pic: '#',
+    profile_pic: 'images/band-stock-photos/1.jpg',
     email: 'katz@123.com',
     location: 'San Francisco',
     music_link: '#',
@@ -19,7 +19,7 @@ module.exports = {
   },
   {
     name: 'The Bad Habits',
-    profile_pic: '#',
+    profile_pic: 'images/band-stock-photos/2.jpg',
     email: 'habits@123.com',
     location: 'San Francisco',
     music_link: '#',
@@ -33,7 +33,7 @@ module.exports = {
   },
 {
   name: 'Stannis the Mantis',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/3.jpg',
   email: 'mantis@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -47,7 +47,7 @@ module.exports = {
 },
 {
   name: 'Farley',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/4.jpg',
   email: 'farley@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -59,7 +59,7 @@ module.exports = {
 },
 {
   name: 'Bacon',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/5.jpg',
   email: 'bacon@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -72,7 +72,7 @@ module.exports = {
 },
 {
   name: 'Chicken',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/6.jpg',
   email: 'chicken@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -85,7 +85,7 @@ module.exports = {
 },
 {
   name: 'Silver Daggers',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/7.jpg',
   email: 'daggers@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -99,7 +99,7 @@ module.exports = {
 },
 {
   name: 'Loose Change',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/8.jpg',
   email: 'loosechange@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -111,7 +111,7 @@ module.exports = {
 },
 {
   name: 'ROFLcopter',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/9.jpg',
   email: 'rofl@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -124,7 +124,7 @@ module.exports = {
 },
 {
   name: 'Red Pony',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/10.jpg',
   email: 'pony@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -137,7 +137,7 @@ module.exports = {
 },
 {
   name: 'Backseat Bandits',
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/11.jpg',
   email: 'bandits@123.com',
   location: 'San Francisco',
   music_link: '#',
@@ -151,7 +151,7 @@ module.exports = {
 },
 {
   name: "Timbuk and the TuTu's",
-  profile_pic: '#',
+  profile_pic: 'images/band-stock-photos/12.jpg',
   email: 'tutus@123.com',
   location: 'San Francisco',
   music_link: '#',

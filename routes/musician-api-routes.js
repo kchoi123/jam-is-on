@@ -52,10 +52,6 @@ module.exports = function (app, passport) {
 
   app.get("/findmybands", function (req, res) {
 
-    // console.log(matches);
-    // console.log(req.session.passport);
-    // console.log((matches.findMusician(req.session.passport.user)));
-    // res.send(matches.close(musician));
 
     db.Musician.findAll({
       where: {
@@ -71,21 +67,40 @@ module.exports = function (app, passport) {
             {primary_instrument: data[0].primary_instrument},
             {primary_instrument: data[0].secondary_instrument}
 
-            ]
+            ],
+            on_lookout: true,
         },
 
+        
         limit: 10
 
         }).then(function(data) {
-            // console.log("\n***CLOSE MATCHES***\n\n");
 
-            // for (var i=0; i<data.length; i++) {
-            //     console.log("Band name: " + data[i].name);
-
-            // }
 
             res.json(data);
         })
+    })
+
+    app.get("/userinfo", function(req, res) {
+      console.log("Hello to you!")
+
+      db.Musician.findAll({
+        where: {
+            id: req.session.passport.user
+        }
+
+      }).then(function(data) {
+        res.json(data);
+      });
+
+    // app.get("/findbyid", function(req, res) {
+    //   db.Band.findOne({
+    //     where: {
+    //       id: req.body.id
+    //     }
+    //   }).then(function(data) {
+    //     res.json(data);
+    //   })
     })
 
   })

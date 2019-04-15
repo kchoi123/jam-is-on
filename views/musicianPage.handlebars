@@ -15,8 +15,8 @@
                 <li>
                     <div class="user-view">
                         <a href="/"><button class="btn">Home</button></a>
-
-                        <a href="/logout"><button class="btn">Logout</button></a>
+                        <a href="/signin"><button class="btn">Sign In</button></a>
+                        <a href="/signup"><button class="btn">Sign Up</button></a>
                 </li>
             </ul>
 
@@ -33,7 +33,41 @@
         </div>
     </nav>
 
-    <center>
+    <div class="container" id="user-box">
+      <div class="row">
+        <div class="col s12 m4 l4">
+            <h4>Welcome back, <strong><span id="user-name">Liam</span>!</strong></h4>
+            <br>
+            <img id="user-pic" src="images/musician-stock-photos/4.jpg">
+            <a href="#" style="text-decoration:underline;">Edit</a>
+        </div>
+
+        <div class="col s12 m4">
+          <div class ="container">
+            <h4>Your Location:</h4> 
+            <br>
+            <p><i class="large material-icons">person_pin</i></p>
+            <h5><strong><span id="user-location">San Francisco</span></strong></h5>
+          </div>
+        </div>
+
+        <div class="col s12 m4" id="preferences">
+            <h4>Preferences:</h4> 
+            <br>
+            <p class="prefs"><i class="small material-icons music-icon">music_note</i><strong>Your Genres: </strong><span id="user-genre">Rock, Folk</span></p>
+            <p class="prefs"><i class="small material-icons music-icon">playlist_play</i><strong>Your Instruments: </strong><span id="user-instrument">Guitar, Piano</span></p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="bands-container" class="container" style="display:none">
+        <h4 id="recommended">Recommended Bands: </h4>
         <ul class="collection" id="bands-box"></ul>
-        <a class="waves-effect waves-light btn modal-trigger" id="find-my-bands">Find Bands</a>
-    </center>
+
+    </div>
+    <a class="waves-effect waves-light btn modal-trigger" id="find-my-bands">Get My Jam On!</a>
+
+
+

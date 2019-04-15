@@ -112,20 +112,13 @@ form {
     margin: auto;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d59ec43fdfbd5fa9eb707d019667c44bc68cef6
 .nav-wrapper {
     position: absolute;
 }
 
 .container {
     max-width: inherit;
-<<<<<<< HEAD
 }
-=======
->>>>>>> 8d59ec43fdfbd5fa9eb707d019667c44bc68cef6
 
 .collection .collection-item.avatar {
     padding-left: 0px !important;
@@ -134,8 +127,4 @@ form {
 .title {
     font-size: 24px;
     color: aquamarine;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d59ec43fdfbd5fa9eb707d019667c44bc68cef6
 }

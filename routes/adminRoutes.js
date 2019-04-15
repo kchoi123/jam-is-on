@@ -23,10 +23,10 @@ module.exports = function (app, passport) {
   app.get("/godView", isLoggedIn, authController.godView);
 
   //get godView
-  app.get("/godViewAll", isLoggedIn, authController.godView);
+  app.get("/godViewAll", authController.godView);
 
   //get godView
-  app.get("/godViewNew", isLoggedIn, authController.godView);
+  app.get("/godViewNew", authController.godView);
 
 
 

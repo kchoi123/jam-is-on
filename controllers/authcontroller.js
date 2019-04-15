@@ -33,6 +33,8 @@ exports.godViewAll = function (req, res) {
         var hbsObject = {
           musicians: placeHolder
         };
+
+        console.log(hbsObject);
     
         res.render('godViewAll', hbsObject);
       });

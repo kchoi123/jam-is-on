@@ -38,7 +38,7 @@ body {
 }
 
 .band-image {
-    width: 100px;
+    width: 120px;
     display: block;
     margin: auto;
 }
@@ -119,13 +119,91 @@ form {
 
 .container {
     max-width: inherit;
+}
 
 .collection .collection-item.avatar {
     padding-left: 0px !important;
+    padding-top: 30px;
+    padding-right: 70px !important;
+    border: none;
 }
 
 .title {
     font-size: 24px;
     color: aquamarine;
+}
 
+#user-box {
+    background-color: whitesmoke;
+    opacity: .7;
+    text-align: center;
+    width: 80%;
+    height:350px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+#user-location {
+    color: rgb(31, 30, 30)
+}
+
+#user-pic {
+    display: block;
+    margin: auto;
+    width: 220px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-bottom: 10px; 
+}
+
+#bands-container {
+    max-width: 80%;
+}
+
+#find-my-bands {
+    background-color: blue;
+    height: 50px;
+    width: 35%;
+    color: aquamarine;
+    display: block;
+    margin: auto;
+    font-size: 22px;
+    padding: 5px;
+}
+
+#recommended {
+    color: whitesmoke;
+}
+
+.material-icons {
+    color: blue;
+    vertical-align: middle;
+}
+
+.music-icons {
+    color: blue;
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+.prefs {
+    font-size: 24px;
+    text-align: left;
+}
+
+.email-icon {
+    padding-right: 90px;
+    padding-top: 30px;
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+ul {
+    border: none !important;
+
+}
+
+li {
+    border: none !important;
 }

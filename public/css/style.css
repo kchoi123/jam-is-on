@@ -119,6 +119,7 @@ form {
 
 .container {
     max-width: inherit;
+}
 
 .collection .collection-item.avatar {
     padding-left: 0px !important;
@@ -128,4 +129,8 @@ form {
     font-size: 24px;
     color: aquamarine;
 
+}
+
+#bands-box {
+    width: 1000px;
 }

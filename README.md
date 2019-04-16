@@ -65,16 +65,12 @@ URL | HTTP | Details:
 /signup | POST | Posts new user to database.
 /logout | GET | Logs specific user out and routes them to root page.
 /musician | GET | Render dashboard page. Get all code snippets specific to logged in user (musician).
-/api/posts/musician/:musician | GET | Grabs all data for specific musician query from mySQL database and renders the main page, using jQuery to dynamically generate HTML.
+/findmybands | GET | Grabs all data for specific musician query from mySQL database and renders the main page, using jQuery to dynamically generate HTML.
+/userinfo | GET | Grabs all user information from mysql database and renders on musician page.
 /dashboard/updateSnippet | PUT | Updates snippet on mySQL database.
 /dashboard/newSnippet | POST | Posts new snippets to mySQL database.
 /dashboard/deleteSnippet | DELETE | Delete snippet from specific user's dashboard.
-/api/dashboard/:language/:id/:tag | GET | Gets all snippets from specific tag in a specific language from.
-/library | GET | Gets all snippets ordered by language from the database.
-/library/:language/:id | GET | Gets all snippets for specific language and displays them on page using handlebars.
 /library/:language/:id/:tag | GET | Gets all snippets for specific language and tag and displays them on page using handlebars.
-
-
 ---
 
 # <a name="technology"> Technologies Used </a>
@@ -100,3 +96,4 @@ URL | HTTP | Details:
 |<b>Kevin Choi :rice_ball: <img src="https://avatars2.githubusercontent.com/u/41413295?s=460&v=4" width="150px">  https://github.com/kchoi123         |Kevin Choi comes from a background in IT Infrastructure specializing in hybrid system deployment using co-locations, AWS, Azure, Rackspace, and SoftLayer. His goal is to develop tools that will help collaborate hardware and software incompatibilities, both technologically and departmentally.| Kevin has played on the US Junior National Badminton Team.   | Netflix and sitting on the couch with his dog Polo :dog:|
 |<b>Liam Condon :koala: <img src="https://avatars1.githubusercontent.com/u/35811826?s=460&v=4" width="150px">   https://github.com/ltcondon     | Liam comes from a background of Economics and Environmental Studies, spending the majority of his career working in the Renewable Energy space, specifically with solar technologies.  | In his spare time, Liam enjoys playing guitar and riding his bike. He even once biked from Washington DC to Seattle! | Card Games, :spades: :hearts: :clubs: :diamonds: Bowling, :bowling: Swimming :swimmer: |
 |<b>Lalitha Pelluri :cat: <img src="https://avatars2.githubusercontent.com/u/32177829?s=460&v=4" width="150px"> https://github.com/lalithapelluri6  | Blah blah blah | Blah blah blah | Drawing, Cooking, Gardening :herb: |
+

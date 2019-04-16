@@ -65,12 +65,7 @@ URL | HTTP | Details:
 /signup | POST | Posts new user to database.
 /logout | GET | Logs specific user out and routes them to root page.
 /musician | GET | Render dashboard page. Get all code snippets specific to logged in user (musician).
-/findmybands | GET | Grabs all data for specific musician query from mySQL database and renders the main page, using jQuery to dynamically generate HTML.
-/userinfo | GET | Grabs all user information from mysql database and renders on musician page.
-/dashboard/updateSnippet | PUT | Updates snippet on mySQL database.
-/dashboard/newSnippet | POST | Posts new snippets to mySQL database.
-/dashboard/deleteSnippet | DELETE | Delete snippet from specific user's dashboard.
-/library/:language/:id/:tag | GET | Gets all snippets for specific language and tag and displays them on page using handlebars.
+
 ---
 
 # <a name="technology"> Technologies Used </a>
